@@ -10,6 +10,26 @@ package br.edu.ifpb.analyzerQuestionsTool.util.data;
 public class WordsUtils {
 
 	/**
+	 * Lista de expressões para verificar se uma pergunta está bem evidiciada.
+	 * 
+	 */
+	public final static String[] WORDS_EVIDENT_EXPRESSIONS = {
+			"meu problema e que", "Gostaria de entender", "como consigo", "nao sei como", "nao sei por que",
+			"como faz", "como faço", "como faco", "como posso", "estou tentando",
+			"meu problema e o seguinte", "meu problema e esse",
+			"o erro e este", "aqui o erro", "como e feita", "como se faz",
+			"qual a melhor", "nao estou conseguindo", "nao sei como",
+			"o problema esta quando", "o problema e que", "nao sei porque",
+			"o que posso fazer", "como posso fazer", "o que representam",
+			"objetivo e o seguinte", "preciso que a saida", "gostaria de saber" };
+	/**
+	 * Lista de palavras para ajudar na identificação de uma pergunta duplicada.
+	 */
+	public final static String[] WORDS_DUPLICATE_CODE = { "pergunta duplicada",
+			"já resolvido", "problema duplicado", "possível duplicação",
+			"problema resolvido" };
+
+	/**
 	 * Lista de palavras que podem identificar um exemplo numa pergunta
 	 */
 	public final static String WORDS_CODE = "abstract,assert,boolean,break,byte,case,catch,char,class,const,default"
@@ -17,13 +37,14 @@ public class WordsUtils {
 			+ "if,implements,instanceof,int,long,native,new,null"
 			+ "private,protected,public,return,short,static,strictfp,super,switch,synchronized"
 			+ "this,throw,throws,transient,true,try,void,volatile,while,continue,equals,out,interger,"
-			+ "valueof,super,get,set,|,||,&,&&,from. where, like,select,join";
+			+ "valueof,super,get,set,|,||,&,&&,from. where,like,select,join";
 
 	/**
 	 * Lista de palavras que podem identificador presença de exemplo numa
 	 * pergunta
 	 */
-	public final static String WORDS_EXAMPLES = "por exemplo,codigo,segue o codigo,ex:";
+	public final static String[] WORDS_EXAMPLES = { "por exemplo", "codigo",
+			"segue o codigo", "ex:", "por exemplo:", "exemplo", "exemplo:","{","}", "seguinte código", "xml"  };
 
 	/**
 	 * Lista de palavras que podem ajudar na identificação de uma palavra
@@ -33,14 +54,33 @@ public class WordsUtils {
 			"qual" };
 
 	/**
+	 * Lista de palavras que rementem a logs de erros em perguntas publicadas.
+	 */
+	public final static String[] WORDS_LOG = { "at", "caused", "fatal", "grave" };
+
+	public final static String[] WORDS_DETAILS = { "eclipse", "sql",
+			"junit", "jdbc", "java", "netbeans",
+			"intelliJ idea Community edition", "intellij", "android studio",
+			"enide studio", "bluej", "jedit", "jgrasp", "jsource",
+			"jdeveloper", "drjava", "tomcat", "widfly", "glassfish", "jetty",
+			"jboss", "ibm WebSphere", "red hat", "tmax", "fujitsu",
+			"apache geronimo", "oracle", "cosminexus", "jdk", "java 1.5",
+			"java 1.6", "java 1.7", "java 1.8" };
+
+	/**
 	 * Lista de palavras que podem identificar se a pergunta possui exigencia.
 	 */
 	public final static String[] WORDS_DEMANDING = { "urgente",
 			"me mandem o codigo", "mandem o codigo", "mandem um exemplo",
-			"estou com pressa", "o mais rapido possivel", "sim eu sei",
-			"mandem a resposta", "Como possa fazer isso", "como faz isso",
-			"respondam", "merda", "porra", "Me ajudem, " + "codigo abaixo",
-			"Me ajudem codigo abaixo" };
+			"estou com pressa", "mais rapido possivel", "sim eu sei",
+			"mandem a resposta", "como posso fazer isso", "como faz isso",
+			"respondam", "merda", "porra", "me ajudem, " + "codigo abaixo",
+			"me ajudem codigo abaixo" };
+
+	public final static String[] WORDS_INTEREST = { "tentei resolver",
+			"busquei", "nao encontrei", "pesquisei", "encontrei", "nao achei",
+			"ja procurei", "procurei", "fui atras", "já tentei",
+			"varias formas", "http:", "link", };
 
 	/**
 	 * Lista de palavras que pode identificar presença de vocativo em um texto
@@ -48,7 +88,7 @@ public class WordsUtils {
 	public final static String[] WORDS_VACATIVES = { "pessoal", "galera",
 			"povo", "gente", "povao", "turma", "povareu", "grupo", "bando",
 			"negrada", "individuos", "habitantes", "nacao", "publico",
-			"populacao", "parentada", "povaleu", "todos" };
+			"populacao", "parentada", "povaleu", "todos", "terraqueos" };
 
 	/**
 	 * Lista de palavras que pode identificar agradecimento no texto
@@ -61,7 +101,8 @@ public class WordsUtils {
 	 * Lista de palvras que podem iniciar uma estrutura de código java ou xml
 	 */
 	public final static String[] WORDS_INIT_COD = { "public", "private",
-			"protected", "class", "abstract", "interface", "enum", "<" };
+			"protected", "class", "abstract", "interface", "enum", "<",
+			".xhtml", ".xml", ".html", ".jsp", ".java" };
 
 	/**
 	 * Lista de palavras que podem finalizar uma estrutura de código java e xml
@@ -266,11 +307,6 @@ public class WordsUtils {
 			"xteve", "xtive", "xtivemos", "xtivera", "xtiveram", "xtiveramos",
 			"xtivermos", "xtivesse", "xtivessem", "xtiveste", "xtivestes",
 			"xtou", "xtas", "xtao", "n" };
-
-	public static String[] getWords() {
-		String[] splited = WORDS_EXAMPLES.split(",");
-		return splited;
-	}
 
 	public static String[] getWordsCode() {
 		String[] splited = WORDS_CODE.split(",");

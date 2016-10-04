@@ -18,15 +18,40 @@ public class CSVUtils {
 
 	private CSVPrinter csvPrinter;
     
-    private static final Object [] FILE_HEADER =
-    	{"ID PERGUNTA","ID RESPOSTA ACEITA","QUANTIDADE DE RESPOSTAS","FECHADA", "DATA FECHAMENTO", "QUANTIDADE COMENTÁRIO", 
-    	"DATA CRIAÇÃO", "FOI RESPONDIDA", "ÚLTIMA DATA DE EDIÇÃO", "PONTOS", "TAGS", "TITLE", "QUANTIDADE VISUALIZAÇÕES", "DESCRIÇAO", "QUANTIDADADE DE VOTOS (down)",
-    	"FOI VOTADA (down)", "QUANTIDADE DE VOTOS (up)", "QUANTIDADE DE VOTOS DELETADOS", "FOI VOTADA (up)", "TÍTULO BEM DEFINIDO", "TÍTULO MÉDIO",
-    	"TITULO TOTALMENTE EM CAIXA ALTA", "TÍTULO PARCIALMENTE EM CAIXA ALTA", "COERÊNCIA DO TÍTULO COM DESCRIÇÃO",
-    	"DESCRIÇÃO BEM DEFINIDA", "INCLUIR VOCATIVO", "DESCRIÇÃO CURTA", "DESCRIÇÃO LONGA",
-    	"MOSTRAR EXEMPLO", "EVITAR MUITO CÓDIGO", "EVITAR DESCRIÇÃO COM APENAS CÓDIGO", "PERGUNTA COM ÚNICO PROBLEMA",
-    	"INCLUIR AGRADECIMENTO", "EVITAR SER EXIGENTE/MAL EDUCADO", "USO DA PRÓPRIA LINGUA", "EVITAR CRIAR PERGUNTAS FACTUAIS",
-    	"NÃO CRIAR PERGUNTAS DE CASA/AULA/TRABALHO", "DEMOSTRAR INTERESSE", "CONTER LOG DE ERRO"};
+    private static final Object [] FILE_HEADER = {
+    	"ID PERGUNTA",
+    	"ID RESPOSTA ACEITA",
+    	"QUANTIDADE DE RESPOSTAS",
+    	"FECHADA", 
+    	"DATA FECHAMENTO", 
+    	"QUANTIDADE COMENTÁRIO", 
+    	"DATA CRIAÇÃO", 
+    	"FOI RESPONDIDA", 
+    	"ÚLTIMA DATA DE EDIÇÃO", 
+    	"PONTOS", 
+    	"TAGS", 
+    	"TITLE", 
+    	"QUANTIDADE VISUALIZAÇÕES", 
+    	"DESCRIÇAO", 
+    	"QUANTIDADADE DE VOTOS (down)",
+    	"FOI VOTADA (down)",
+    	"QUANTIDADE DE VOTOS (up)", 
+    	"QUANTIDADE DE VOTOS DELETADOS",
+    	"FOI VOTADA (up)",
+    	
+		"COERENCIA ENTRE TITULO E DESCRICAO",
+		"TITULO BEM DEFINIDO",
+		"EXEMPLO",
+		"USO DA NORMA CULTA",
+		"SER EDUCADO",
+		"DETALHE DO CONTEXTO DO PROBLEMA",
+		"DESCRICAO CURTA",
+		"OBJETIVIDADE",
+		"CLAREZA", 
+		"PERGUNTA BEM DEFINIDA", 
+		"EVITAR CRIAR PERGUNTAS DUPLICADAS", 
+		"EVITAR CRIAR PERGUNTAS SOBRE TARABALHOS ACADEMICOS",
+	};
     
     
     public void getQuestions(List<QuestionPojo> questions){
@@ -34,7 +59,8 @@ public class CSVUtils {
     }
     
     
-    public void writeCSV(String fileName){
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public void writeCSV(String fileName){
     	
     	FileWriter fWriter = null;
     	
@@ -67,26 +93,18 @@ public class CSVUtils {
 				recordQuestions.add(String.valueOf(q.getColumnQuestion().getDeleteVoteCount()));
 				recordQuestions.add(String.valueOf(q.getColumnQuestion().isUpVoted()));
 				
-				recordQuestions.add(String.valueOf(q.getColumnUnderstandableTitle()));
-				recordQuestions.add(String.valueOf(q.getColumnMediumSizeTitle()));
-				recordQuestions.add(String.valueOf(q.getColumnTitleCapitaLetters()));
-				recordQuestions.add(String.valueOf(q.getColumnTitleCapitaLettersPartially()));
-				recordQuestions.add(String.valueOf(q.getColumnCoherencyBodyAndTitle()));
-				recordQuestions.add(String.valueOf(q.getColumnUnderstandableDescription()));
-				recordQuestions.add(String.valueOf(q.getColumnIncludingVocative()));
-				recordQuestions.add(String.valueOf(q.getColumnShortDescription()));
-				recordQuestions.add(String.valueOf(q.getColumnLongDescription()));
-				recordQuestions.add(String.valueOf(q.getColumnShowingExample()));
-				recordQuestions.add(String.valueOf(q.getColumnAvoidingMuchCode()));
-				recordQuestions.add(String.valueOf(q.getColumnAvoidDescriptionWithCodeOnly()));
-				recordQuestions.add(String.valueOf(q.getColumnQuestionWithSingleProblem()));
-				recordQuestions.add(String.valueOf(q.getColumnIncludingGreetings()));
-				recordQuestions.add(String.valueOf(q.getColumnObviatingDemandingLanguage()));
-				recordQuestions.add(String.valueOf(q.getColumnUsingProperLanguage()));
-				recordQuestions.add(String.valueOf(q.getColumnAvoidingCreatingFactoidQuestions()));
-				recordQuestions.add(String.valueOf(q.getColumnDoNotCreateHomeworkQuestions()));
-				recordQuestions.add(String.valueOf(q.getColumnDemonstrateInterest()));
-				recordQuestions.add(String.valueOf(q.getColumncontainsLog()));
+				recordQuestions.add(String.valueOf(q.getColumnCoerenciaTeD()));
+				recordQuestions.add(String.valueOf(q.getColumnTituloBemDefinido()));
+				recordQuestions.add(String.valueOf(q.getColumnExemplo()));
+				recordQuestions.add(String.valueOf(q.getColumnUsoNormaCultaLingua()));
+				recordQuestions.add(String.valueOf(q.getColumnEducacao()));
+				recordQuestions.add(String.valueOf(q.getColumnDetailContexto()));
+				recordQuestions.add(String.valueOf(q.getColumnDescricaoCurta()));
+				recordQuestions.add(String.valueOf(q.getColumnObjetividade()));
+				recordQuestions.add(String.valueOf(q.getColumnClareza()));
+				recordQuestions.add(String.valueOf(q.getColumnPergBemDefinida()));
+				recordQuestions.add(String.valueOf(q.getColumnEvPerguntaDuplicada()));
+				recordQuestions.add(String.valueOf(q.getColumnEvPergSobreTrabAcademicos()));
 				
 				csvPrinter.printRecord(recordQuestions);
 			}

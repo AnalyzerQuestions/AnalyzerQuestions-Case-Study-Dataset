@@ -5,50 +5,23 @@ import br.edu.ifpb.analyzerQuestionsTool.stackExchangeAPI.entities.types.Questio
 public class QuestionPojo {
 
 	private Question columnQuestion;
-	
-	private int columnUnderstandableTitle;
-	
-	private int columnMediumSizeTitle;
-	
-	private int columnTitleCapitaLetters;
-	
-	private int columnTitleCapitaLettersPartially;
-	
-	private int columnCoherencyBodyAndTitle;
-	
-	private int columnUnderstandableDescription;
-	
-	private int columnIncludingVocative;
-	
-	private int columnShortDescription;
-	
-	private int columnLongDescription;
-	
-	private int columnShowingExample;
-	
-	private int columnAvoidingMuchCode;
-	
-	private int columnAvoidDescriptionWithCodeOnly;
-	
-	private int columnQuestionWithSingleProblem;
-	
-	private int columnIncludingGreetings;
-	
-	private int columnObviatingDemandingLanguage;
-	
-	private int columnUsingProperLanguage;
-	
-	private int columnAvoidingCreatingFactoidQuestions;
-	
-	private int columnDoNotCreateHomeworkQuestions;
-	
-	private int columnDemonstrateInterest;
-	
-	private int columncontainsLog;
+
+	private int columnCoerenciaTeD;
+	private int columnTituloBemDefinido;
+	private int columnExemplo;
+	private int columnUsoNormaCultaLingua;
+	private int columnEducacao;
+	private int columnDetailContexto;
+	private int columnDescricaoCurta;
+	private int columnObjetividade;
+	private int columnClareza;
+	private int columnPergBemDefinida;
+	private int columnEvPerguntaDuplicada;
+	private int columnEvPergSobreTrabAcademicos;
 
 	public QuestionPojo() {
 	}
-	
+
 	public Question getColumnQuestion() {
 		return columnQuestion;
 	}
@@ -57,204 +30,101 @@ public class QuestionPojo {
 		this.columnQuestion = columnQuestion;
 	}
 
-	public int getColumnUnderstandableTitle() {
-		return columnUnderstandableTitle;
+	public int getColumnCoerenciaTeD() {
+		return columnCoerenciaTeD;
 	}
 
-	public void setColumnUnderstandableTitle(int columnUnderstandableTitle) {
-		this.columnUnderstandableTitle = columnUnderstandableTitle;
+	public void setColumnCoerenciaTeD(int columnCoerenciaTeD) {
+		this.columnCoerenciaTeD = columnCoerenciaTeD;
 	}
 
-	public int getColumnMediumSizeTitle() {
-		return columnMediumSizeTitle;
+	public int getColumnTituloBemDefinido() {
+		return columnTituloBemDefinido;
 	}
 
-	public void setColumnMediumSizeTitle(int columnMediumSizeTitle) {
-		this.columnMediumSizeTitle = columnMediumSizeTitle;
+	public void setColumnTituloBemDefinido(int columnTituloBemDefinido) {
+		this.columnTituloBemDefinido = columnTituloBemDefinido;
 	}
 
-	public int getColumnTitleCapitaLetters() {
-		return columnTitleCapitaLetters;
+	public int getColumnExemplo() {
+		return columnExemplo;
 	}
 
-	public void setColumnTitleCapitaLetters(int columnTitleCapitaLetters) {
-		this.columnTitleCapitaLetters = columnTitleCapitaLetters;
+	public void setColumnExemplo(int columnExemplo) {
+		this.columnExemplo = columnExemplo;
 	}
 
-	public int getColumnTitleCapitaLettersPartially() {
-		return columnTitleCapitaLettersPartially;
+	public int getColumnUsoNormaCultaLingua() {
+		return columnUsoNormaCultaLingua;
 	}
 
-	public void setColumnTitleCapitaLettersPartially(
-			int columnTitleCapitaLettersPartially) {
-		this.columnTitleCapitaLettersPartially = columnTitleCapitaLettersPartially;
+	public void setColumnUsoNormaCultaLingua(int columnUsoNormaCultaLingua) {
+		this.columnUsoNormaCultaLingua = columnUsoNormaCultaLingua;
 	}
 
-	public int getColumnCoherencyBodyAndTitle() {
-		return columnCoherencyBodyAndTitle;
+	public int getColumnEducacao() {
+		return columnEducacao;
 	}
 
-	public void setColumnCoherencyBodyAndTitle(int columnCoherencyBodyAndTitle) {
-		this.columnCoherencyBodyAndTitle = columnCoherencyBodyAndTitle;
+	public void setColumnEducacao(int columnEducacao) {
+		this.columnEducacao = columnEducacao;
 	}
 
-	public int getColumnUnderstandableDescription() {
-		return columnUnderstandableDescription;
+	public int getColumnDetailContexto() {
+		return columnDetailContexto;
 	}
 
-	public void setColumnUnderstandableDescription(
-			int columnUnderstandableDescription) {
-		this.columnUnderstandableDescription = columnUnderstandableDescription;
+	public void setColumnDetailContexto(int columnDetailContexto) {
+		this.columnDetailContexto = columnDetailContexto;
 	}
 
-	public int getColumnIncludingVocative() {
-		return columnIncludingVocative;
+	public int getColumnDescricaoCurta() {
+		return columnDescricaoCurta;
 	}
 
-	public void setColumnIncludingVocative(int columnIncludingVocative) {
-		this.columnIncludingVocative = columnIncludingVocative;
+	public void setColumnDescricaoCurta(int columnDescricaoCurta) {
+		this.columnDescricaoCurta = columnDescricaoCurta;
 	}
 
-	public int getColumnShortDescription() {
-		return columnShortDescription;
+	public int getColumnObjetividade() {
+		return columnObjetividade;
 	}
 
-	public void setColumnShortDescription(int columnShortDescription) {
-		this.columnShortDescription = columnShortDescription;
+	public void setColumnObjetividade(int columnObjetividade) {
+		this.columnObjetividade = columnObjetividade;
 	}
 
-	public int getColumnLongDescription() {
-		return columnLongDescription;
+	public int getColumnClareza() {
+		return columnClareza;
 	}
 
-	public void setColumnLongDescription(int columnLongDescription) {
-		this.columnLongDescription = columnLongDescription;
+	public void setColumnClareza(int columnClareza) {
+		this.columnClareza = columnClareza;
 	}
 
-	public int getColumnShowingExample() {
-		return columnShowingExample;
+	public int getColumnPergBemDefinida() {
+		return columnPergBemDefinida;
 	}
 
-	public void setColumnShowingExample(int columnShowingExample) {
-		this.columnShowingExample = columnShowingExample;
+	public void setColumnPergBemDefinida(int columnPergBemDefinida) {
+		this.columnPergBemDefinida = columnPergBemDefinida;
 	}
 
-	public int getColumnAvoidingMuchCode() {
-		return columnAvoidingMuchCode;
+	public int getColumnEvPerguntaDuplicada() {
+		return columnEvPerguntaDuplicada;
 	}
 
-	public void setColumnAvoidingMuchCode(int columnAvoidingMuchCode) {
-		this.columnAvoidingMuchCode = columnAvoidingMuchCode;
+	public void setColumnEvPerguntaDuplicada(int columnEvPerguntaDuplicada) {
+		this.columnEvPerguntaDuplicada = columnEvPerguntaDuplicada;
 	}
 
-	public int getColumnAvoidDescriptionWithCodeOnly() {
-		return columnAvoidDescriptionWithCodeOnly;
+	public int getColumnEvPergSobreTrabAcademicos() {
+		return columnEvPergSobreTrabAcademicos;
 	}
 
-	public void setColumnAvoidDescriptionWithCodeOnly(
-			int columnAvoidDescriptionWithCodeOnly) {
-		this.columnAvoidDescriptionWithCodeOnly = columnAvoidDescriptionWithCodeOnly;
-	}
-
-	public int getColumnQuestionWithSingleProblem() {
-		return columnQuestionWithSingleProblem;
-	}
-
-	public void setColumnQuestionWithSingleProblem(
-			int columnQuestionWithSingleProblem) {
-		this.columnQuestionWithSingleProblem = columnQuestionWithSingleProblem;
-	}
-
-	public int getColumnIncludingGreetings() {
-		return columnIncludingGreetings;
-	}
-
-	public void setColumnIncludingGreetings(int columnIncludingGreetings) {
-		this.columnIncludingGreetings = columnIncludingGreetings;
-	}
-
-	public int getColumnObviatingDemandingLanguage() {
-		return columnObviatingDemandingLanguage;
-	}
-
-	public void setColumnObviatingDemandingLanguage(
-			int columnObviatingDemandingLanguage) {
-		this.columnObviatingDemandingLanguage = columnObviatingDemandingLanguage;
-	}
-
-	public int getColumnUsingProperLanguage() {
-		return columnUsingProperLanguage;
-	}
-
-	public void setColumnUsingProperLanguage(int columnUsingProperLanguage) {
-		this.columnUsingProperLanguage = columnUsingProperLanguage;
-	}
-
-	public int getColumnAvoidingCreatingFactoidQuestions() {
-		return columnAvoidingCreatingFactoidQuestions;
-	}
-
-	public void setColumnAvoidingCreatingFactoidQuestions(
-			int columnAvoidingCreatingFactoidQuestions) {
-		this.columnAvoidingCreatingFactoidQuestions = columnAvoidingCreatingFactoidQuestions;
-	}
-
-	public int getColumnDoNotCreateHomeworkQuestions() {
-		return columnDoNotCreateHomeworkQuestions;
-	}
-
-	public void setColumnDoNotCreateHomeworkQuestions(
-			int columnDoNotCreateHomeworkQuestions) {
-		this.columnDoNotCreateHomeworkQuestions = columnDoNotCreateHomeworkQuestions;
-	}
-
-	public int getColumnDemonstrateInterest() {
-		return columnDemonstrateInterest;
-	}
-
-	public void setColumnDemonstrateInterest(int columnDemonstrateInterest) {
-		this.columnDemonstrateInterest = columnDemonstrateInterest;
-	}
-
-	public int getColumncontainsLog() {
-		return columncontainsLog;
-	}
-
-	public void setColumncontainsLog(int columncontainsLog) {
-		this.columncontainsLog = columncontainsLog;
-	}
-
-	@Override
-	public String toString() {
-		return "QuestionPojo [columnQuestion=" + columnQuestion
-				+ ", columnUnderstandableTitle=" + columnUnderstandableTitle
-				+ ", columnMediumSizeTitle=" + columnMediumSizeTitle
-				+ ", columnTitleCapitaLetters=" + columnTitleCapitaLetters
-				+ ", columnTitleCapitaLettersPartially="
-				+ columnTitleCapitaLettersPartially
-				+ ", columnCoherencyBodyAndTitle="
-				+ columnCoherencyBodyAndTitle
-				+ ", columnUnderstandableDescription="
-				+ columnUnderstandableDescription
-				+ ", columnIncludingVocative=" + columnIncludingVocative
-				+ ", columnShortDescription=" + columnShortDescription
-				+ ", columnLongDescription=" + columnLongDescription
-				+ ", columnShowingExample=" + columnShowingExample
-				+ ", columnAvoidingMuchCode=" + columnAvoidingMuchCode
-				+ ", columnAvoidDescriptionWithCodeOnly="
-				+ columnAvoidDescriptionWithCodeOnly
-				+ ", columnQuestionWithSingleProblem="
-				+ columnQuestionWithSingleProblem
-				+ ", columnIncludingGreetings=" + columnIncludingGreetings
-				+ ", columnObviatingDemandingLanguage="
-				+ columnObviatingDemandingLanguage
-				+ ", columnUsingProperLanguage=" + columnUsingProperLanguage
-				+ ", columnAvoidingCreatingFactoidQuestions="
-				+ columnAvoidingCreatingFactoidQuestions
-				+ ", columnDoNotCreateHomeworkQuestions="
-				+ columnDoNotCreateHomeworkQuestions
-				+ ", columnDemonstrateInterest=" + columnDemonstrateInterest
-				+ ", columncontainsLog=" + columncontainsLog + "]";
+	public void setColumnEvPergSobreTrabAcademicos(
+			int columnEvPergSobreTrabAcademicos) {
+		this.columnEvPergSobreTrabAcademicos = columnEvPergSobreTrabAcademicos;
 	}
 
 }

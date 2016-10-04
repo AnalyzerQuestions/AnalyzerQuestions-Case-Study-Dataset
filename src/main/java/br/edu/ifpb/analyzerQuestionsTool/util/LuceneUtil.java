@@ -12,6 +12,7 @@ import org.apache.lucene.analysis.util.CharArraySet;
 
 import br.edu.ifpb.analyzerQuestionsTool.util.data.WordsUtils;
 
+
 /**
  * 
  * @author franck

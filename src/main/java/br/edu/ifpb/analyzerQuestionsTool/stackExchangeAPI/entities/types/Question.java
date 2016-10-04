@@ -12,7 +12,7 @@ public class Question {
 	private int acceptedAnswerId;
 	private int answerCount;
 	private List<Answer> answers;
-	// private String body;
+	// private String body;   // html completo
 	private boolean canClosed;
 	private Date closedDate;
 	private int commentCount;

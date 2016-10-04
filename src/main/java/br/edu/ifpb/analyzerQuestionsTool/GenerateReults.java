@@ -3,17 +3,18 @@ package br.edu.ifpb.analyzerQuestionsTool;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.ifpb.analyzerQuestionsTool.analyzers.QuestionAnalyzerImpl;
+import br.edu.ifpb.analyzerQuestionsTool.analyzers.QuestionAnalyzerFinal;
 import br.edu.ifpb.analyzerQuestionsTool.stackExchangeAPI.entities.pojos.QuestionPojo;
+import br.edu.ifpb.analyzerQuestionsTool.stackExchangeAPI.entities.types.Comment;
 import br.edu.ifpb.analyzerQuestionsTool.stackExchangeAPI.entities.types.Question;
 
 public class GenerateReults {
 	
-	private QuestionAnalyzerImpl analyzer;
+	private QuestionAnalyzerFinal analyzer;
 	
 	
 	public GenerateReults() {
-		analyzer = new QuestionAnalyzerImpl();
+		analyzer = new QuestionAnalyzerFinal();
 	}
 	
 	public List<QuestionPojo> generate(List<Question> questions){
@@ -21,32 +22,41 @@ public class GenerateReults {
 		List<QuestionPojo> questionPojos = new ArrayList<QuestionPojo>();
 		
 		for (Question question : questions) {
+			
 			QuestionPojo qp = new QuestionPojo();
 			qp.setColumnQuestion(question);
-			qp.setColumnUnderstandableTitle(analyzer.understandableTitle(question.getTitle(), question.getBodyMarkdown()));
-			qp.setColumnMediumSizeTitle(analyzer.mediumSizeTitle(question.getTitle()));
-			qp.setColumnTitleCapitaLetters(analyzer.mediumSizeTitle(question.getTitle()));
-			qp.setColumnTitleCapitaLettersPartially(analyzer.mediumSizeTitle(question.getTitle()));
-			qp.setColumnCoherencyBodyAndTitle(analyzer.coherencyBodyAndTitle(question.getTitle(), question.getBodyMarkdown()));
-			qp.setColumnUnderstandableDescription(analyzer.understandableDescription(question.getBodyMarkdown()));
-			qp.setColumnIncludingVocative(analyzer.includingVocative(question.getBodyMarkdown()));
-			qp.setColumnShortDescription(analyzer.shortDescription(question.getBodyMarkdown()));
-			qp.setColumnLongDescription(analyzer.longDescription(question.getBodyMarkdown()));
-			qp.setColumnShowingExample(analyzer.showingExample(question.getBodyMarkdown()));
-			qp.setColumnAvoidingMuchCode(analyzer.avoidingMuchCode(question.getBodyMarkdown()));
-			qp.setColumnAvoidDescriptionWithCodeOnly(analyzer.avoidDescriptionWithCodeOnly(question.getBodyMarkdown()));
-			qp.setColumnQuestionWithSingleProblem(analyzer.questionWithSingleProblem(question.getBodyMarkdown()));
-			qp.setColumnIncludingGreetings(analyzer.includingGreetings(question.getBodyMarkdown()));
-			qp.setColumnObviatingDemandingLanguage(analyzer.obviatingDemandingLanguage(question.getBodyMarkdown()));
-			qp.setColumnUsingProperLanguage(analyzer.usingProperLanguage(question.getBodyMarkdown()));
-			qp.setColumnAvoidingCreatingFactoidQuestions(analyzer.avoidingCreatingFactoidQuestions(question.getBodyMarkdown()));
-			qp.setColumnDoNotCreateHomeworkQuestions(analyzer.doNotCreateHomeworkQuestions(question.getBodyMarkdown()));
-			//qp.setColumncontainsLog(analyzer.containsLog(question.getBodyMarkdown()));
+			
+			qp.setColumnCoerenciaTeD(analyzer.analyzerCoherencyBodyAndTitle(question.getTitle(), question.getBodyMarkdown()));
+			qp.setColumnTituloBemDefinido(analyzer.analyzerUnderstandableTitle(question.getTitle(), question.getBodyMarkdown()));
+			qp.setColumnExemplo(analyzer.analyzerShowExample(question.getBodyMarkdown()));
+			qp.setColumnUsoNormaCultaLingua(analyzer.analyzerUsingProperLanguage(question.getBodyMarkdown()));
+			qp.setColumnEducacao(analyzer.analyzerBeEducated(question.getBodyMarkdown()));
+			qp.setColumnDetailContexto(analyzer.analyzerDetailAboutContext(question.getBodyMarkdown()));
+			qp.setColumnDescricaoCurta(analyzer.analyzerShortDescriptionQuestion(question.getBodyMarkdown()));
+			qp.setColumnObjetividade(analyzer.analyzerObjective(question.getBodyMarkdown()));
+			qp.setColumnClareza(analyzer.analyzerClarity(question.getTitle(), question.getBodyMarkdown()));
+			qp.setColumnPergBemDefinida(analyzer.analyzerUnderstandableDescription(question.getTitle(), question.getBodyMarkdown()));
+				
+			qp.setColumnEvPerguntaDuplicada(analyzer.analyzerAvoidCreateDuplicateQuestion(
+															this.parseComments(question.getComments())));
+			
+			qp.setColumnEvPergSobreTrabAcademicos(analyzer.analyzerDoNotCreateHomeworkQuestions(question.getBodyMarkdown()));
 			
 			questionPojos.add(qp);
 		}
 		
 		return questionPojos;
 	}
+	
+	private List<String> parseComments(List<Comment> comments){
+		List<String> bodys = new ArrayList<>();
+		if(comments != null){
+			for (Comment comment : comments) {
+				bodys.add(comment.getBodyMarkdown());
+			}
+		}
+		return bodys;
+	}
+	
 
 }
