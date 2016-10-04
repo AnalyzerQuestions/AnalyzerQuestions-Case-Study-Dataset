@@ -59,7 +59,7 @@ public class StackExchangeApiTest {
 		GenerateReults generateReults = new GenerateReults();
 		CSVUtils csvUtils = new CSVUtils();
 		csvUtils.getQuestions(generateReults.generate(itemsQuestions));
-		csvUtils.writeCSV("dataset.xls");
+		csvUtils.writeCSV("dataset.csv");
 		
 		System.out.println("------------------------------------------------> ESCRITA CSV OK");
 

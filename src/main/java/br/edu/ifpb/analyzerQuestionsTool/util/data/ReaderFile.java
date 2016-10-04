@@ -25,12 +25,12 @@ public class ReaderFile {
 		return sb.toString();
 	}*/
 	
-	public static String readerTxt() {
+	public static String readerTxt(String txt) {
 
 		BufferedReader br;
 		StringBuilder sb = null;
 		try {
-			br = new BufferedReader(new FileReader("classJava.txt"));
+			br = new BufferedReader(new FileReader(txt));
 			sb = new StringBuilder();
 			String line = br.readLine();
 
