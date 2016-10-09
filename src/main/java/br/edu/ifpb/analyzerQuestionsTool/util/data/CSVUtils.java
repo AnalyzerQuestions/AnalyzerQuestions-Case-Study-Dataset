@@ -39,6 +39,10 @@ public class CSVUtils {
     	"QUANTIDADE DE VOTOS DELETADOS",
     	"FOI VOTADA (up)",
     	
+    	"TEMPO (minutos) ENTRE PERGUNTA E 1º COMENTARIO",
+    	"TEMPO (minutos) ENTRE PERGUNTA E 1ª RESPOSTA",
+    	"TEMPO (minutos) ENTRE 1º COMENTARIO E 1ª RESPOSTA",
+    	
 		"COERENCIA ENTRE TITULO E DESCRICAO",
 		"TITULO BEM DEFINIDO",
 		"EXEMPLO",
@@ -92,6 +96,10 @@ public class CSVUtils {
 				recordQuestions.add(String.valueOf(q.getColumnQuestion().getUpVoteCount()));
 				recordQuestions.add(String.valueOf(q.getColumnQuestion().getDeleteVoteCount()));
 				recordQuestions.add(String.valueOf(q.getColumnQuestion().isUpVoted()));
+				
+				recordQuestions.add(String.valueOf(q.getColumnDateBetwenQuestionComment() == -1 ? "Sem comentário":q.getColumnDateBetwenQuestionComment()));
+				recordQuestions.add(String.valueOf(q.getColumnDateBetwenQuestionAnswer() == -1 ? "Sem Resposta":q.getColumnDateBetwenQuestionAnswer()));
+				recordQuestions.add(String.valueOf(q.getColumnDateBetwenCommentAnswer() == -1 ? "Sem resposta/comentario":q.getColumnDateBetwenCommentAnswer()));
 				
 				recordQuestions.add(String.valueOf(q.getColumnCoerenciaTeD()));
 				recordQuestions.add(String.valueOf(q.getColumnTituloBemDefinido()));

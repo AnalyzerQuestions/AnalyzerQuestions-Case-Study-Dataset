@@ -6,6 +6,10 @@ public class QuestionPojo {
 
 	private Question columnQuestion;
 
+	private Long columnDateBetwenQuestionComment;
+	private Long columnDateBetwenQuestionAnswer;
+	private Long columnDateBetwenCommentAnswer;
+
 	private int columnCoerenciaTeD;
 	private int columnTituloBemDefinido;
 	private int columnExemplo;
@@ -125,6 +129,33 @@ public class QuestionPojo {
 	public void setColumnEvPergSobreTrabAcademicos(
 			int columnEvPergSobreTrabAcademicos) {
 		this.columnEvPergSobreTrabAcademicos = columnEvPergSobreTrabAcademicos;
+	}
+
+	public Long getColumnDateBetwenQuestionComment() {
+		return columnDateBetwenQuestionComment;
+	}
+
+	public void setColumnDateBetwenQuestionComment(
+			Long columnDateBetwenQuestionComment) {
+		this.columnDateBetwenQuestionComment = columnDateBetwenQuestionComment;
+	}
+
+	public Long getColumnDateBetwenQuestionAnswer() {
+		return columnDateBetwenQuestionAnswer;
+	}
+
+	public void setColumnDateBetwenQuestionAnswer(
+			Long columnDateBetwenQuestionAnswer) {
+		this.columnDateBetwenQuestionAnswer = columnDateBetwenQuestionAnswer;
+	}
+
+	public Long getColumnDateBetwenCommentAnswer() {
+		return columnDateBetwenCommentAnswer;
+	}
+
+	public void setColumnDateBetwenCommentAnswer(
+			Long columnDateBetwenCommentAnswer) {
+		this.columnDateBetwenCommentAnswer = columnDateBetwenCommentAnswer;
 	}
 
 }
