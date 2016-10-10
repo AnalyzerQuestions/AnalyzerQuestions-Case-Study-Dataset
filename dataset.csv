@@ -22270,7 +22270,7 @@ Código:
 ---
 
 ",0,false,0,0,false,109,25,-83,1,1,1,1,0,0,1,1,1,1,0,1
-50825,0,1,false,null,0,Sun Feb 15 15:20:54 BRT 2015,true,Sun Feb 15 16:07:41 BRT 2015,2,"[java, jquery, ajax]",Como usar jQuery + Ajax com Java EE,235,"Estou criando uma conexão com o banco em Java assim:
+50825,0,1,false,null,0,Sun Feb 15 15:20:54 BRT 2015,true,Sun Feb 15 16:07:41 BRT 2015,2,"[java, jquery, ajax]",Como usar jQuery + Ajax com Java EE,236,"Estou criando uma conexão com o banco em Java assim:
 
     try{
             Class.forName(""org.postgresql.Driver"");

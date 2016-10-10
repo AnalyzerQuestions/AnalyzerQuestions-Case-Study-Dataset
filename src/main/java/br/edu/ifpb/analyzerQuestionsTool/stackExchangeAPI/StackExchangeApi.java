@@ -52,6 +52,12 @@ public class StackExchangeApi {
         return builder.build().create(StackExchange.class);
     }
 
+    /**
+     * Obter perguntas para dataset, inclui filtros para perguntas do dataset
+     * 
+     * @param site
+     * @return
+     */
     public StackExchangeSite getSiteService(final String site) {
         return builder
             .setRequestInterceptor(new RequestInterceptor() {
@@ -66,6 +72,26 @@ public class StackExchangeApi {
                     request.addQueryParam("key", key);
                     request.addQueryParam("access_token", accessToken);
                     request.addQueryParam("filter", "c*65v.ppToRvQ1LyNaG30spXwQLmiAxD*("); //  filter questions
+                }
+            })
+            .build()
+            .create(StackExchangeSite.class);
+    }
+    
+    /**
+     * Obter perguntas para dataset, inclui filtros para Tags
+     * 
+     * @param site
+     * @return
+     */
+    public StackExchangeSite getSiteService(final String site, String nameParam, String value) {
+        return builder
+            .setRequestInterceptor(new RequestInterceptor() {
+                public void intercept(RequestFacade request) {
+                    request.addQueryParam("site", site);
+                    request.addQueryParam(nameParam, value);
+                    request.addQueryParam("key", key);
+                    request.addQueryParam("access_token", accessToken);
                 }
             })
             .build()
