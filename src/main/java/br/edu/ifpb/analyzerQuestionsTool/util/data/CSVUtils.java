@@ -33,11 +33,11 @@ public class CSVUtils {
     	"TITLE", 
     	"QUANTIDADE VISUALIZAÇÕES", 
     	"DESCRIÇAO", 
-    	"QUANTIDADADE DE VOTOS (down)",
+   /* 	"QUANTIDADADE DE VOTOS (down)",
     	"FOI VOTADA (down)",
     	"QUANTIDADE DE VOTOS (up)", 
     	"QUANTIDADE DE VOTOS DELETADOS",
-    	"FOI VOTADA (up)",
+    	"FOI VOTADA (up)",*/
     	
     	"TEMPO (minutos) ENTRE PERGUNTA E 1º COMENTARIO",
     	"TEMPO (minutos) ENTRE PERGUNTA E 1ª RESPOSTA",
@@ -91,11 +91,11 @@ public class CSVUtils {
 				recordQuestions.add(String.valueOf(q.getColumnQuestion().getTitle()));
 				recordQuestions.add(String.valueOf(q.getColumnQuestion().getViewCount()));
 				recordQuestions.add(String.valueOf(q.getColumnQuestion().getBodyMarkdown()));
-				recordQuestions.add(String.valueOf(q.getColumnQuestion().getDownVoteCount()));
+				/*recordQuestions.add(String.valueOf(q.getColumnQuestion().getDownVoteCount()));
 				recordQuestions.add(String.valueOf(q.getColumnQuestion().isDownVoted()));
 				recordQuestions.add(String.valueOf(q.getColumnQuestion().getUpVoteCount()));
 				recordQuestions.add(String.valueOf(q.getColumnQuestion().getDeleteVoteCount()));
-				recordQuestions.add(String.valueOf(q.getColumnQuestion().isUpVoted()));
+				recordQuestions.add(String.valueOf(q.getColumnQuestion().isUpVoted()));*/
 				
 				recordQuestions.add(String.valueOf(q.getColumnDateBetwenQuestionComment() == -1 ? "Sem comentário":q.getColumnDateBetwenQuestionComment()));
 				recordQuestions.add(String.valueOf(q.getColumnDateBetwenQuestionAnswer() == -1 ? "Sem Resposta":q.getColumnDateBetwenQuestionAnswer()));

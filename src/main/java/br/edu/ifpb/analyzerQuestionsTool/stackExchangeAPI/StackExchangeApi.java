@@ -97,4 +97,21 @@ public class StackExchangeApi {
             .build()
             .create(StackExchangeSite.class);
     }
+    
+    public StackExchangeSite getSiteService(final String site, String tagged) {
+        return builder
+            .setRequestInterceptor(new RequestInterceptor() {
+                public void intercept(RequestFacade request) {
+                    request.addQueryParam("site", site);
+                    request.addQueryParam("sort", "creation");
+                    request.addQueryParam("order", "desc");
+                    request.addQueryParam("tagged", tagged);
+                    request.addQueryParam("key", key);
+                    request.addQueryParam("access_token", accessToken);
+                    request.addQueryParam("filter", "c*65v.ppToRvQ1LyNaG30spXwQLmiAxD*("); //  filter questions
+                }
+            })
+            .build()
+            .create(StackExchangeSite.class);
+    }
 }

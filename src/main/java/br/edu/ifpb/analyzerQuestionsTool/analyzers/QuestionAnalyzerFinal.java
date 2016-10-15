@@ -129,8 +129,7 @@ public class QuestionAnalyzerFinal {
 	 * 
 	 */
 	public Integer analyzerDetailAboutContext(String description) {
-		String s1 = StringUtil.removeCharacterSpecial(description)
-				.toLowerCase();
+		String s1 = StringUtil.removeCharacterSpecial(description).toLowerCase();
 
 		for (int i = 0; i < WordsUtils.WORDS_DETAILS.length; i++) {
 			if (s1.contains(WordsUtils.WORDS_DETAILS[i])) {
@@ -140,6 +139,7 @@ public class QuestionAnalyzerFinal {
 
 		return 0;
 	}
+	
 
 	/**
 	 * Ser educado (Usar língua apropriada, incluir agradecimento)

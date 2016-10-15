@@ -25,30 +25,31 @@ public class GenerateReults {
 		List<QuestionPojo> questionPojos = new ArrayList<QuestionPojo>();
 		
 		for (Question question : questions) {
-			
-			QuestionPojo qp = new QuestionPojo();
-			qp.setColumnQuestion(question);
-			
-			qp.setColumnDateBetwenQuestionComment(this.dateBetwenQuestionComment(question));
-			qp.setColumnDateBetwenQuestionAnswer(this.dateBetwenQuestionAnswer(question));
-			qp.setColumnDateBetwenCommentAnswer(this.dateBetwenCommentAnswer(question));
-			
-			qp.setColumnCoerenciaTeD(analyzer.analyzerCoherencyBodyAndTitle(question.getTitle(), question.getBodyMarkdown()));
-			qp.setColumnTituloBemDefinido(analyzer.analyzerUnderstandableTitle(question.getTitle(), question.getBodyMarkdown()));
-			qp.setColumnExemplo(analyzer.analyzerShowExample(question.getBodyMarkdown()));
-			qp.setColumnUsoNormaCultaLingua(analyzer.analyzerUsingProperLanguage(question.getBodyMarkdown()));
-			qp.setColumnEducacao(analyzer.analyzerBeEducated(question.getBodyMarkdown()));
-			qp.setColumnDetailContexto(analyzer.analyzerDetailAboutContext(question.getBodyMarkdown()));
-			qp.setColumnDescricaoCurta(analyzer.analyzerShortDescriptionQuestion(question.getBodyMarkdown()));
-			qp.setColumnObjetividade(analyzer.analyzerObjective(question.getBodyMarkdown()));
-			qp.setColumnClareza(analyzer.analyzerClarity(question.getTitle(), question.getBodyMarkdown()));
-			qp.setColumnPergBemDefinida(analyzer.analyzerUnderstandableDescription(question.getTitle(), question.getBodyMarkdown()));
+			if(question.isAnswered()){
+				QuestionPojo qp = new QuestionPojo();
+				qp.setColumnQuestion(question);
 				
-			qp.setColumnEvPerguntaDuplicada(analyzer.analyzerAvoidCreateDuplicateQuestion(this.parseComments(question.getComments())));
-			
-			qp.setColumnEvPergSobreTrabAcademicos(analyzer.analyzerDoNotCreateHomeworkQuestions(question.getBodyMarkdown()));
-			
-			questionPojos.add(qp);
+				qp.setColumnDateBetwenQuestionComment(this.dateBetwenQuestionComment(question));
+				qp.setColumnDateBetwenQuestionAnswer(this.dateBetwenQuestionAnswer(question));
+				qp.setColumnDateBetwenCommentAnswer(this.dateBetwenCommentAnswer(question));
+				
+				qp.setColumnCoerenciaTeD(analyzer.analyzerCoherencyBodyAndTitle(question.getTitle(), question.getBodyMarkdown()));
+				qp.setColumnTituloBemDefinido(analyzer.analyzerUnderstandableTitle(question.getTitle(), question.getBodyMarkdown()));
+				qp.setColumnExemplo(analyzer.analyzerShowExample(question.getBodyMarkdown()));
+				qp.setColumnUsoNormaCultaLingua(analyzer.analyzerUsingProperLanguage(question.getBodyMarkdown()));
+				qp.setColumnEducacao(analyzer.analyzerBeEducated(question.getBodyMarkdown()));
+				qp.setColumnDetailContexto(analyzer.analyzerDetailAboutContext(question.getBodyMarkdown()));
+				qp.setColumnDescricaoCurta(analyzer.analyzerShortDescriptionQuestion(question.getBodyMarkdown()));
+				qp.setColumnObjetividade(analyzer.analyzerObjective(question.getBodyMarkdown()));
+				qp.setColumnClareza(analyzer.analyzerClarity(question.getTitle(), question.getBodyMarkdown()));
+				qp.setColumnPergBemDefinida(analyzer.analyzerUnderstandableDescription(question.getTitle(), question.getBodyMarkdown()));
+					
+				qp.setColumnEvPerguntaDuplicada(analyzer.analyzerAvoidCreateDuplicateQuestion(this.parseComments(question.getComments())));
+				
+				qp.setColumnEvPergSobreTrabAcademicos(analyzer.analyzerDoNotCreateHomeworkQuestions(question.getBodyMarkdown()));
+				
+				questionPojos.add(qp);
+			}
 		}
 		
 		return questionPojos;
