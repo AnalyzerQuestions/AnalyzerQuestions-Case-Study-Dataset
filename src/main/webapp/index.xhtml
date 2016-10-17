@@ -8,81 +8,66 @@
 <h:head>
 	<title>Analyzer Questions tool</title>
 
-	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+	<link rel="stylesheet"
+		href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
 
-	<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/bootstrap/css/bootstrap.min.css" />
 
-	<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/style.css" />
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/resources/css/style.css" />
 
-	<link href='http://fonts.googleapis.com/css?family=Roboto:300,400' rel='stylesheet' type='text/css' />
+	<link href='http://fonts.googleapis.com/css?family=Roboto:300,400'
+		rel='stylesheet' type='text/css' />
+
+	<!--  <link href="#{request.contextPath}/resources/froalaEditor/css/froala_editor.min.css" rel="stylesheet" type="text/css" />
+  <link href="#{request.contextPath}/resources/froalaEditor/css/froala_style.min.css" rel="stylesheet" type="text/css" />
+
+  Include Code Mirror style
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css"/> -->
+
+
 </h:head>
 
 <h:body id="body_page">
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-	
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<img class="navbar-brand" alt="Brand" src="resources/img/icon.png" />
-				<p class="navbar-text">Analyzer Questions Tool</p>
-			</div>
-			
-			<ul class="nav navbar-nav navbar-right">
-				<li role="presentation" class="active"><a href="#">Usuário</a></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false"> Ajuda <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">AQ Tool</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="#">Sobre</a></li>
-					</ul></li>
-			</ul>
-		</div>
-	</nav>
 
 	<h:form>
-		<section style="padding-top: 80px;">
-			<div>
-				<h2>Qual sua Pergunta de programação?</h2>
-				<p class="p">Iremos ajuda-lo a formular melhor sua pergunta e
-					posta-la para você no StackOverFlow.</p>
-			</div>
-			<p:separator style="border:none; background-color:none;" />
-			<p:separator style="border:none; background-color:none;" />
-
-			<div class="ui-fluid" style="padding-left: 450px;">
-				<p:panelGrid columns="2" styleClass="ui-panelgrid-blank" style="padding-top:10px;">
-					<p:panelGrid columns="1" layout="grid" styleClass="ui-panelgrid-blank">
-						<p:messages />
-						<p:inputText size="70" placeholder="Título" value="#{indexBean.question.title}" required="true"
-										requiredMessage="Um título deve ser informado" />
-
-						<p:inputTextarea rows="10" cols="30" value="#{indexBean.question.body}" required="true" requiredMessage="A descrição deve ser informada" />
-
-						<p:inputText size="70" placeholder="Tags" />
-						<p:commandButton value="Postar" style="	padding-top: 8px;" action="#{indexBean.submit}" update="panel">
-							<p:ajax update="panel" />
-						</p:commandButton>
-						
-					</p:panelGrid>
-					<p:outputPanel id="panel">
-						<p:panel rendered="#{indexBean.messages.size() > 0}" style="border: none !important; width: 450px;">
-							<div class="alert alert-danger" role="alert" style="float: left !important">
-								<p:repeat value="#{indexBean.messages}" var="msg">
-									<i class="fa fa-caret-right" aria-hidden="true"> </i>
-									<h:outputText value=" #{msg}" />
-									<br />
-								</p:repeat>
-							</div>
-						</p:panel>
-					</p:outputPanel>
-				</p:panelGrid>
-			</div>
-		</section>
+		<pe:ckEditor id="editor" 
+			checkDirtyInterval="0">
+		</pe:ckEditor>
 	</h:form>
 
-	<script type="text/javascript" src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js' />
+	<script type="text/javascript"
+		src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js' />
 
-	<script type="text/javascript" src="#{request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
+
+	<!--   <script type="text/javascript" src="#{request.contextPath}/resources/froalaEditor/js/froala_editor.min.js"></script>
+
+  Include Code Mirror.
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/xml/xml.min.js"></script>
+
+  Include Plugins.
+  <script type="text/javascript" src="#{request.contextPath}/resources/froalaEditor/js/plugins/align.min.js"></script>
+  <script type="text/javascript" src="#{request.contextPath}/resources/froalaEditor/js/plugins/code_beautifier.min.js"></script>
+  <script type="text/javascript" src="#{request.contextPath}/resources/froalaEditor/js/plugins/image.min.js"></script>
+  <script type="text/javascript" src="#{request.contextPath}/resources/froalaEditor/js/plugins/image_manager.min.js"></script>
+  <script type="text/javascript" src="#{request.contextPath}/resources/froalaEditor/js/plugins/link.min.js"></script>
+  <script type="text/javascript" src="#{request.contextPath}/resources/froalaEditor/js/plugins/lists.min.js"></script>
+  <script type="text/javascript" src="#{request.contextPath}/resources/froalaEditor/js/plugins/save.min.js"></script>
+  <script type="text/javascript" src="#{request.contextPath}/resources/froalaEditor/js/plugins/url.min.js"></script> -->
+
+	<!--   Include Language file if we want to use it.
+  <script type="text/javascript" src="#{request.contextPath}/resources/froalaEditor/js/languages/ro.js"></script>
+
+  Initialize the editor.
+  <script>
+      $(function() {
+          $('#edit').froalaEditor()
+      });
+  </script> --> -->
 
 </h:body>
 </html>
