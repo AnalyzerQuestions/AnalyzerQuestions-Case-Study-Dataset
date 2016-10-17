@@ -14,191 +14,98 @@ public class Analyzer implements Serializable{
 	private List<String> messages = new ArrayList<String>();
 	private QuestionAnalyzerFinal questionAnalyzer;
 
-	*//**
-	 * 
-	 * @param title
-	 * @param description
-	 *//*
 	public void analyse(Question question) {
 		messages.clear();
 
 		questionAnalyzer = new QuestionAnalyzerFinal();
 
-		this.analyseTitleCapitaLetters(question.getTitle());
-		this.analyseTitleCapitaLettersPartially(question.getTitle());
 		this.analyseUnderstandableTitle(question.getTitle(), question.getBody());
-		this.analyseMediumSizeTitle(question.getTitle());
 		this.analyseCoherencyBodyAndTitle(question.getTitle(), question.getBody());
-		this.analyseUnderstandableDescription(question.getBody());
-		this.analyseIncludingVocative(question.getBody());
+		this.analyzerObjective(question.getBody());
+		this.analyzerClarity(question.getTitle(), question.getBody());
 		this.analyseShowingExample(question.getBody());
-		this.analyseShortDescription(question.getBody());
-		this.analyseLongDescription(question.getBody());
-		this.analyseAvoidingMuchCode(question.getBody());
-		this.analyseQuestionWithSingleProblem(question.getBody());
+		this.analyzerUnderstandableDescription(question.getTitle(), question.getBody());
+		this.analyzerDetailAboutContext(question.getBody());
+		this.analyzerBeEducated(question.getBody());
+		this.analyzerUsingProperLanguage(question.getBody());
+		
+		this.analyzerShortDescriptionQuestion(question.getBody());
+		this.analyzerDoNotCreateHomeworkQuestions(question.getBody());
 		
 		
 	}
 
-	*//**
-	 * 
-	 * @param title
-	 * @param description
-	 * @return
-	 *//*
 	public void analyseUnderstandableTitle(String title, String description) {
-		if (questionAnalyzer.understandableTitle(title, description) == 0)
+		if (questionAnalyzer.analyzerUnderstandableTitle(title, description) == 0)
 			messages.add(Messages.TITULO_BEM_DEFINIDO.getMsg());
 	}
 	
-	*//**
-	 * 
-	 * @param title
-	 *//*
-	public void analyseMediumSizeTitle(String title){
-		if(questionAnalyzer.mediumSizeTitle(title) == 0)
-			messages.add(Messages.MEDIO_SIZE_TITLE.getMsg());
-		
-	}
-
-	*//**
-	 * 
-	 * @param title
-	 * @return
-	 *//*
-	public void analyseTitleCapitaLetters(String title) {
-		if (questionAnalyzer.titleCapitaLetters(title) == 0)
-			messages.add(Messages.TITLE_CAPITA_LETTERS.getMsg());
-	}
 	
-	*//**
-	 * 
-	 * @param title
-	 *//*
-	public void analyseTitleCapitaLettersPartially(String title){
-		if(questionAnalyzer.titleCapitaLettersPartially(title) == 0)
-			messages.add(Messages.TITLE_CAPITA_PARTIALLY_LETTERS.getMsg());
-	}
-	
-	*//**
-	 * 
-	 * @param title
-	 * @param description
-	 *//*
 	public void analyseCoherencyBodyAndTitle(String title, String description){
-		if(questionAnalyzer.coherencyBodyAndTitle(title, description) == 0)
+		if(questionAnalyzer.analyzerCoherencyBodyAndTitle(title, description) == 0)
 			messages.add(Messages.COERENCY_BODY_WITH_TITLE.getMsg());
 	}
 	
-	*//**
-	 * 
-	 * @param description
-	 *//*
-	public void analyseUnderstandableDescription(String description){
-		if(questionAnalyzer.understandableDescription(description) == 0)
+	public void analyzerObjective(String description){
+		if(questionAnalyzer.analyzerObjective(description) == 0)
 			messages.add(Messages.UNDERSTANDABLE_DESCRIPTION.getMsg());
 	}
 	
-	*//**
-	 * 
-	 * @param description
-	 *//*
-	public void analyseIncludingVocative(String description){
-		if(questionAnalyzer.includingVocative(description) == 0)
+	public void analyzerClarity(String title, String description){
+		if(questionAnalyzer.analyzerClarity(title, description) == 0)
 			messages.add(Messages.INCLUDING_VOCATIVE.getMsg());
 	}
 	
-	*//**
-	 * 
-	 * @param description
-	 *//*
 	public void analyseShowingExample(String description){
-		if(questionAnalyzer.showingExample(description) == 0)
+		if(questionAnalyzer.analyzerShowExample(description) == 0)
 			messages.add(Messages.SHOW_EXAMPLE.getMsg());
 	}
 	
-	*//**
-	 * 
-	 * @param description
-	 *//*
-	public void analyseShortDescription(String description){
-		if(questionAnalyzer.shortDescription(description) == 0)
-			messages.add(Messages.SHORT_DESCRIPTION.getMsg());
-	}
 	
-	*//**
-	 * 
-	 * @param description
-	 *//*
-	public void analyseLongDescription(String description){
-		if(questionAnalyzer.longDescription(description) == 0)
+	public void analyzerUnderstandableDescription(String title, String description){
+		if(questionAnalyzer.analyzerUnderstandableDescription(title, description) == 0)
 			messages.add(Messages.LONG_DESCRIPTION.getMsg());
 	}
 	
-	*//**
-	 * 
-	 * @param description
-	 *//*
-	public void analyseAvoidingMuchCode(String description){
-		if(questionAnalyzer.avoidingMuchCode(description) == 0)
+	public void analyzerDetailAboutContext(String description){
+		if(questionAnalyzer.analyzerDetailAboutContext(description) == 0)
 			messages.add(Messages.AVOIDING_MUCH_CODE.getMsg());
 	}
 	
-	*//**
-	 * 
-	 * @param description
-	 *//*
-	public void analyseAvoidDescriptionWithCodeOnly(String description){
-		if(questionAnalyzer.avoidDescriptionWithCodeOnly(description) == 0)
-			messages.add(Messages.AVOIDING_DESCRIPTION_WITH_CODE_ONLY.getMsg());
-	}
-	
-	*//**
-	 * 
-	 * @param description
-	 *//*
-	public void analyseQuestionWithSingleProblem(String description){
-		if(questionAnalyzer.questionWithSingleProblem(description) == 0)
-			messages.add(Messages.QUESTION_WITH_SINGLE_PROBLEM.getMsg());
-	}
-	
-	*//**
-	 * 
-	 * @param description
-	 *//*
-	public void analyseIncludingGreetings(String description){
-		if(questionAnalyzer.includingGreetings(description) == 0)
+	public void analyzerBeEducated(String description){
+		if(questionAnalyzer.analyzerBeEducated(description) == 0)
 			messages.add(Messages.INCLUDING_GREETINGS.getMsg());
 	}
 	
-	*//**
-	 * 
-	 * @return
-	 *//*
+	public void analyzerUsingProperLanguage(String description){
+		if(questionAnalyzer.analyzerUsingProperLanguage(description) == 0)
+			messages.add(Messages.INCLUDING_GREETINGS.getMsg());
+	}
+	
+	public void analyzerShortDescriptionQuestion(String description){
+		if(questionAnalyzer.analyzerShortDescriptionQuestion(description) == 0)
+			messages.add(Messages.INCLUDING_GREETINGS.getMsg());
+	}
+	
+	public void analyzerDoNotCreateHomeworkQuestions(String description){
+		if(questionAnalyzer.analyzerDoNotCreateHomeworkQuestions(description) == 0)
+			messages.add(Messages.INCLUDING_GREETINGS.getMsg());
+	}
+	
 	public List<String> getMessages() {
 		return messages;
 	}
 
 	
-	 * 
-	 
 	public void setMessages(List<String> messages) {
 		this.messages = messages;
 	}
 
-	*//**
-	 * 
-	 * @return
-	 *//*
-	public QuestionAnalyzer getQuestionAnalyzer() {
+	public QuestionAnalyzerFinal getQuestionAnalyzer() {
 		return questionAnalyzer;
 	}
 
-	*//**
-	 * 
-	 * @param questionAnalyzer
-	 *//*
-	public void setQuestionAnalyzer(QuestionAnalyzer questionAnalyzer) {
+	public void setQuestionAnalyzer(QuestionAnalyzerFinal questionAnalyzer) {
 		this.questionAnalyzer = questionAnalyzer;
 	}
 	
