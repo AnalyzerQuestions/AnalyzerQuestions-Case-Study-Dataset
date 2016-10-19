@@ -50,8 +50,20 @@ public class CSVUtils {
 		"SER EDUCADO",
 		"DETALHE DO CONTEXTO DO PROBLEMA",
 		"DESCRICAO CURTA",
+		
 		"OBJETIVIDADE",
+		"DESCRICAO CURTA (OBJETIVIDADE)",
+		"PERGUNTA UNICA (OBJETIVIDADE)",
+		"EVITAR MUITO CODIGO (OBJETIVIDADE)",
+		
 		"CLAREZA", 
+		"OBJETIVIDADE (CLAREZA)",
+		"COERENCIA (CLAREZA)",
+		"MOSTRAR EXEMPLO (CLAREZA)",
+		"PERGUNTA UNICA (CLAREZA)",
+		"EVEDENCIAR PROBLEMA (CLAREZA)",
+		
+		
 		"PERGUNTA BEM DEFINIDA", 
 		"EVITAR CRIAR PERGUNTAS DUPLICADAS", 
 		"EVITAR CRIAR PERGUNTAS SOBRE TARABALHOS ACADEMICOS",
@@ -108,8 +120,20 @@ public class CSVUtils {
 				recordQuestions.add(String.valueOf(q.getColumnEducacao()));
 				recordQuestions.add(String.valueOf(q.getColumnDetailContexto()));
 				recordQuestions.add(String.valueOf(q.getColumnDescricaoCurta()));
+				
 				recordQuestions.add(String.valueOf(q.getColumnObjetividade()));
+				recordQuestions.add(String.valueOf(q.getObjShortDescription()));
+				recordQuestions.add(String.valueOf(q.getObjQuestionUnique()));
+				recordQuestions.add(String.valueOf(q.getObjAvoidMuchCode()));
+				
 				recordQuestions.add(String.valueOf(q.getColumnClareza()));
+				recordQuestions.add(String.valueOf(q.getClaObjective()));
+				recordQuestions.add(String.valueOf(q.getClaCoherency()));
+				recordQuestions.add(String.valueOf(q.getClaShowExample()));
+				recordQuestions.add(String.valueOf(q.getClaQuestionUnique()));
+				recordQuestions.add(String.valueOf(q.getClaEvidentProbleam()));
+				
+				
 				recordQuestions.add(String.valueOf(q.getColumnPergBemDefinida()));
 				recordQuestions.add(String.valueOf(q.getColumnEvPerguntaDuplicada()));
 				recordQuestions.add(String.valueOf(q.getColumnEvPergSobreTrabAcademicos()));

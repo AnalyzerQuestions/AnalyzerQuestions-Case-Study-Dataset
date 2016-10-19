@@ -25,7 +25,7 @@ public class GenerateReults {
 		List<QuestionPojo> questionPojos = new ArrayList<QuestionPojo>();
 		
 		for (Question question : questions) {
-			if(question.isAnswered()){
+			if(!question.isAnswered()){
 				QuestionPojo qp = new QuestionPojo();
 				qp.setColumnQuestion(question);
 				
@@ -40,12 +40,24 @@ public class GenerateReults {
 				qp.setColumnEducacao(analyzer.analyzerBeEducated(question.getBodyMarkdown()));
 				qp.setColumnDetailContexto(analyzer.analyzerDetailAboutContext(question.getBodyMarkdown()));
 				qp.setColumnDescricaoCurta(analyzer.analyzerShortDescriptionQuestion(question.getBodyMarkdown()));
-				qp.setColumnObjetividade(analyzer.analyzerObjective(question.getBodyMarkdown()));
-				qp.setColumnClareza(analyzer.analyzerClarity(question.getTitle(), question.getBodyMarkdown()));
-				qp.setColumnPergBemDefinida(analyzer.analyzerUnderstandableDescription(question.getTitle(), question.getBodyMarkdown()));
-					
-				qp.setColumnEvPerguntaDuplicada(analyzer.analyzerAvoidCreateDuplicateQuestion(this.parseComments(question.getComments())));
 				
+				qp.setColumnObjetividade(analyzer.analyzerObjective(question.getBodyMarkdown()));
+				qp.setObjShortDescription(analyzer.analyzerShortDescriptionQuestion(question.getBodyMarkdown()));
+				qp.setObjQuestionUnique(analyzer.questionUnique(question.getBodyMarkdown()));
+				qp.setObjAvoidMuchCode(analyzer.avoidingMuchCode(question.getBodyMarkdown()));
+				
+				
+				qp.setColumnClareza(analyzer.analyzerClarity(question.getTitle(), question.getBodyMarkdown()));
+				qp.setClaCoherency(analyzer.analyzerCoherencyBodyAndTitle(question.getTitle(), question.getBodyMarkdown()));
+				qp.setClaEvidentProbleam(analyzer.isEvidentProbleam(question.getBodyMarkdown()));
+				qp.setClaObjective(analyzer.analyzerObjective(question.getBodyMarkdown()));
+				qp.setClaQuestionUnique(analyzer.questionUnique(question.getBodyMarkdown()));
+				qp.setClaShowExample(analyzer.analyzerShowExample(question.getBodyMarkdown()));
+
+				
+				
+				qp.setColumnPergBemDefinida(analyzer.analyzerUnderstandableDescription(question.getTitle(), question.getBodyMarkdown()));	
+				qp.setColumnEvPerguntaDuplicada(analyzer.analyzerAvoidCreateDuplicateQuestion(this.parseComments(question.getComments())));
 				qp.setColumnEvPergSobreTrabAcademicos(analyzer.analyzerDoNotCreateHomeworkQuestions(question.getBodyMarkdown()));
 				
 				questionPojos.add(qp);

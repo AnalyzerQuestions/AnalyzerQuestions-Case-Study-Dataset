@@ -69,7 +69,7 @@ public class QuestionAnalyzerFinal {
 		Integer cont = 0;
 		if (this.analyzerShortDescriptionQuestion(description) == 1)
 			cont++;
-		if (this.isQuestionUnique(description))
+		if (this.questionUnique(description) == 1)
 			cont++;
 		if (avoidingMuchCode(description) == 1)
 			cont++;
@@ -95,10 +95,10 @@ public class QuestionAnalyzerFinal {
 		if (analyzerShowExample(description) == 1)
 			count++;
 
-		if (isQuestionUnique(description)) {
+		if (questionUnique(description) == 1) {
 			count++;
 		} else {
-			if (isEvidentProbleam(description)) {
+			if (isEvidentProbleam(description) == 1) {
 				count++;
 			}
 		}
@@ -342,16 +342,16 @@ public class QuestionAnalyzerFinal {
 		return 1;
 	}
 
-	private boolean isEvidentProbleam(String description) {
+	public int isEvidentProbleam(String description) {
 		String str = StringUtil.removerAcentos(description);
 		String[] duplicates = WordsUtils.WORDS_EVIDENT_EXPRESSIONS;
 
 		for (int i = 0; i < duplicates.length; i++) {
 			if (str.contains(duplicates[i])) {
-				return true;
+				return 1;
 			}
 		}
-		return false;
+		return 0;
 	}
 
 	private boolean isMediumSizeTitle(String title) {
@@ -391,7 +391,7 @@ public class QuestionAnalyzerFinal {
 	/**
 	 * Verifica se a descrição está relacionada a um único problema.
 	 */
-	private boolean isQuestionUnique(String description) {
+	public int questionUnique(String description) {
 		int flag = 0;
 
 		String str = this.removeAllCode(description);
@@ -403,9 +403,9 @@ public class QuestionAnalyzerFinal {
 			}
 		}
 		if (flag > 1) {
-			return false;
+			return 0;
 		}
-		return true;
+		return 1;
 	}
 
 	/**

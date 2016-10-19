@@ -102,7 +102,7 @@ public class StackExchangeApiTest {
 		GenerateReults generateReults = new GenerateReults();
 		CSVUtils csvUtils = new CSVUtils();
 		csvUtils.getQuestions(generateReults.generate(itemsQuestions));
-		csvUtils.writeCSV("dataset-respondidas.csv");
+		csvUtils.writeCSV("dataset-nao-respondidas.csv");
 		
 		System.out.println("------------------------------------------------> ESCRITA CSV OK");
 

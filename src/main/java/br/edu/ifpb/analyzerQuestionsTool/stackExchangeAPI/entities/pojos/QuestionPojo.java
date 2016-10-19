@@ -17,8 +17,19 @@ public class QuestionPojo {
 	private int columnEducacao;
 	private int columnDetailContexto;
 	private int columnDescricaoCurta;
+
 	private int columnObjetividade;
+	private int objShortDescription;
+	private int objQuestionUnique;
+	private int objAvoidMuchCode;
+
 	private int columnClareza;
+	private int claObjective;
+	private int claCoherency;
+	private int claShowExample;
+	private int claQuestionUnique;
+	private int claEvidentProbleam;
+
 	private int columnPergBemDefinida;
 	private int columnEvPerguntaDuplicada;
 	private int columnEvPergSobreTrabAcademicos;
@@ -156,6 +167,70 @@ public class QuestionPojo {
 	public void setColumnDateBetwenCommentAnswer(
 			Long columnDateBetwenCommentAnswer) {
 		this.columnDateBetwenCommentAnswer = columnDateBetwenCommentAnswer;
+	}
+
+	public int getObjShortDescription() {
+		return objShortDescription;
+	}
+
+	public void setObjShortDescription(int objShortDescription) {
+		this.objShortDescription = objShortDescription;
+	}
+
+	public int getObjQuestionUnique() {
+		return objQuestionUnique;
+	}
+
+	public void setObjQuestionUnique(int objQuestionUnique) {
+		this.objQuestionUnique = objQuestionUnique;
+	}
+
+	public int getObjAvoidMuchCode() {
+		return objAvoidMuchCode;
+	}
+
+	public void setObjAvoidMuchCode(int objAvoidMuchCode) {
+		this.objAvoidMuchCode = objAvoidMuchCode;
+	}
+
+	public int getClaObjective() {
+		return claObjective;
+	}
+
+	public void setClaObjective(int claObjective) {
+		this.claObjective = claObjective;
+	}
+
+	public int getClaCoherency() {
+		return claCoherency;
+	}
+
+	public void setClaCoherency(int claCoherency) {
+		this.claCoherency = claCoherency;
+	}
+
+	public int getClaShowExample() {
+		return claShowExample;
+	}
+
+	public void setClaShowExample(int claShowExample) {
+		this.claShowExample = claShowExample;
+	}
+
+	public int getClaQuestionUnique() {
+		return claQuestionUnique;
+	}
+
+	public void setClaQuestionUnique(int claQuestionUnique) {
+		this.claQuestionUnique = claQuestionUnique;
+	}
+
+	public int getClaEvidentProbleam() {
+		return claEvidentProbleam;
+	}
+
+	public void setClaEvidentProbleam(int claEvidentProbleam) {
+		this.claEvidentProbleam = claEvidentProbleam;
 	}
 
 }
