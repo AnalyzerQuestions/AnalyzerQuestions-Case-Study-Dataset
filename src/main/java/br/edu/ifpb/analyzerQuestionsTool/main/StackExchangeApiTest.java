@@ -21,7 +21,7 @@ public class StackExchangeApiTest {
 		
 		Map<String, String> dates = new HashMap<String, String>();
 		
-		dates.put("1388534400", "1391212800");
+		/*dates.put("1388534400", "1391212800");
 		dates.put("1391212800", "1393632000");
 		dates.put("1393632000", "1396310400");
 		dates.put("1396310400", "1398902400");
@@ -68,7 +68,7 @@ public class StackExchangeApiTest {
 		dates.put("1459468800", "1460678400");
 		dates.put("1460764800", "1461974400");
 		dates.put("1462060800", "1463270400");//2016-05-01 <- comecou
-		dates.put("1463356800", "1464652800");
+*/		dates.put("1463356800", "1464652800");
 		dates.put("1464739200", "1465948800");
 		dates.put("1466035200", "1467244800");
 		dates.put("1467331200", "1468540800");
@@ -102,7 +102,7 @@ public class StackExchangeApiTest {
 		GenerateReults generateReults = new GenerateReults();
 		CSVUtils csvUtils = new CSVUtils();
 		csvUtils.getQuestions(generateReults.generate(itemsQuestions));
-		csvUtils.writeCSV("dataset-nao-respondidas.csv");
+		csvUtils.writeCSV("perguntas.csv");
 		
 		System.out.println("------------------------------------------------> ESCRITA CSV OK");
 

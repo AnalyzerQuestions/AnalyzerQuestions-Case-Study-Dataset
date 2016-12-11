@@ -12,7 +12,7 @@ public class Question {
 	private int acceptedAnswerId;
 	private int answerCount;
 	private List<Answer> answers;
-	// private String body;   // html completo
+	private String body; 
 	private boolean canClosed;
 	private Date closedDate;
 	private int commentCount;
@@ -197,6 +197,15 @@ public class Question {
 
 	public void setUpVoted(boolean upVoted) {
 		this.upVoted = upVoted;
+	}
+	
+
+	public String getBody() {
+		return body;
+	}
+
+	public void setBody(String body) {
+		this.body = body;
 	}
 
 	@Override

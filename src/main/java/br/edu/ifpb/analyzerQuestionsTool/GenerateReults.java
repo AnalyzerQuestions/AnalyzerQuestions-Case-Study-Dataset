@@ -25,9 +25,8 @@ public class GenerateReults {
 		List<QuestionPojo> questionPojos = new ArrayList<QuestionPojo>();
 		
 		for (Question question : questions) {
-			if(!question.isAnswered()){
-				QuestionPojo qp = new QuestionPojo();
-				qp.setColumnQuestion(question);
+			QuestionPojo qp = new QuestionPojo();
+			qp.setColumnQuestion(question);
 				
 				qp.setColumnDateBetwenQuestionComment(this.dateBetwenQuestionComment(question));
 				qp.setColumnDateBetwenQuestionAnswer(this.dateBetwenQuestionAnswer(question));
@@ -61,7 +60,6 @@ public class GenerateReults {
 				qp.setColumnEvPergSobreTrabAcademicos(analyzer.analyzerDoNotCreateHomeworkQuestions(question.getBodyMarkdown()));
 				
 				questionPojos.add(qp);
-			}
 		}
 		
 		return questionPojos;
