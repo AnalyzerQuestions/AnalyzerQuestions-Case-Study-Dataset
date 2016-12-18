@@ -29,10 +29,20 @@ import br.edu.ifpb.analyzerQuestionsTool.stackExchangeAPI.entities.types.Questio
  */
 public class GenerateReults {
 	
+	/**
+	 * 
+	 */
 	private QuestionAnalyzerFinal analyzer;
+	
+	/**
+	 * 
+	 */
 	private QuestionAnalyzerPaperFinal analyzerPaper;
 	
 	
+	/**
+	 * 
+	 */
 	public GenerateReults() {
 		analyzer = new QuestionAnalyzerFinal();
 		analyzerPaper = new QuestionAnalyzerPaperFinal();
@@ -49,12 +59,22 @@ public class GenerateReults {
 		
 		for (Question question : questions) {
 			QuestionPojo qp = new QuestionPojo();
+			
+				/**
+				 * metadados SO request to API
+				 */
 				qp.setColumnQuestion(question);
 				
+				/**
+				 * metadados of time asks
+				 */
 				qp.setColumnDateBetwenQuestionComment(this.dateBetwenQuestionComment(question));
 				qp.setColumnDateBetwenQuestionAnswer(this.dateBetwenQuestionAnswer(question));
 				qp.setColumnDateBetwenCommentAnswer(this.dateBetwenCommentAnswer(question));
 				
+				/**
+				 * Analizers of questions obtained requesties in SO for paper of Journal submit
+				 */
 				qp.setColumnObjetividade(analyzerPaper.analyzerObjective(question.getBodyMarkdown()));
 				qp.setObjQuestionUnique(analyzer.questionUnique(question.getBodyMarkdown()));
 				qp.setObjShortDescription(analyzer.analyzerShortDescriptionQuestion(question.getBodyMarkdown()));
@@ -80,6 +100,11 @@ public class GenerateReults {
 		return questionPojos;
 	}
 	
+	/**
+	 * Parse list of comments of pojo @Comment to list String
+	 * @param comments
+	 * @return
+	 */
 	private List<String> parseComments(List<Comment> comments){
 		List<String> bodys = new ArrayList<>();
 		if(comments != null){
@@ -90,6 +115,11 @@ public class GenerateReults {
 		return bodys;
 	}
 	
+	/**
+	 * 
+	 * @param question
+	 * @return
+	 */
 	private Long dateBetwenQuestionComment(Question question){
 		Long minutes = -1l;
 		Comment comment = null;
@@ -102,6 +132,11 @@ public class GenerateReults {
 		return minutes;
 	}
 	
+	/**
+	 * 
+	 * @param question
+	 * @return
+	 */
 	private Long dateBetwenQuestionAnswer(Question question){
 		Long minutes = -1l;
 		Answer answer = null;
@@ -114,6 +149,11 @@ public class GenerateReults {
 		return minutes;
 	}
 
+	/**
+	 * 
+	 * @param question
+	 * @return
+	 */
 	private Long dateBetwenCommentAnswer(Question question){
 		Long minutes = -1l;
 		
@@ -126,6 +166,12 @@ public class GenerateReults {
 		return minutes;
 	}
 	
+	/**
+	 * 
+	 * @param date1
+	 * @param date2
+	 * @return
+	 */
 	private Long minutesBetewn(Date date1, Date date2){
 		
 		Calendar calendar = Calendar.getInstance();
@@ -136,6 +182,11 @@ public class GenerateReults {
 		return minutes;
 	}
 	
+	/**
+	 * 
+	 * @param question
+	 * @return
+	 */
 	private boolean isCommented(Question question){
 		return question.getCommentCount() > 0; 
 	}
