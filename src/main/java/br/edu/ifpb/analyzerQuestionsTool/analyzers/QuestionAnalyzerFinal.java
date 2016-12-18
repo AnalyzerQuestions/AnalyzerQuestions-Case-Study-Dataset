@@ -112,8 +112,7 @@ public class QuestionAnalyzerFinal {
 	/**
 	 * Descrição bem definida (Objetividade e clareza)
 	 */
-	public Integer analyzerUnderstandableDescription(String title,
-			String description) {
+	public Integer analyzerUnderstandableDescription(String title, String description) {
 
 		if (this.analyzerObjective(description) == 1) {
 
@@ -352,6 +351,39 @@ public class QuestionAnalyzerFinal {
 			}
 		}
 		return 0;
+	}
+	
+	/**
+	 * 
+	 * @param description
+	 * @return
+	 */
+	public Integer avoidDescriptionWithCodeOnly(String description) {
+		boolean isInit = false;
+		boolean isEnd = false;
+		String[] s = {};
+
+		for (int i = 0; i < WordsUtils.WORDS_INIT_COD.length; i++) {
+			s = StringTokenizerUtils.parseToken(description.toLowerCase());
+			if (s[0].trim().contains(WordsUtils.WORDS_INIT_COD[i])) {
+				isInit = true;
+			}
+		}
+		s = StringTokenizerUtils.parseToken(description.toLowerCase());
+		String f = s[s.length - 1];
+		String f2 = Character.toString(f.charAt(f.length() - 1));
+
+		for (int i = 0; i < WordsUtils.WORDS_END_COD.length; i++) {
+			if (s[s.length - 1].equals(WordsUtils.WORDS_END_COD[i])
+					|| f2.equals(WordsUtils.WORDS_END_COD[i])) {
+				isEnd = true;
+			}
+		}
+
+		if (isInit && isEnd) {
+			return 0;
+		}
+		return 1;
 	}
 
 	private boolean isMediumSizeTitle(String title) {

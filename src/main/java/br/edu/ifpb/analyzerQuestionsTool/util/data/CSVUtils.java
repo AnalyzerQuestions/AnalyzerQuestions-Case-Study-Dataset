@@ -19,56 +19,52 @@ public class CSVUtils {
 	private CSVPrinter csvPrinter;
     
     private static final Object [] FILE_HEADER = {
-    	//"ID PERGUNTA",
-    	//"ID RESPOSTA ACEITA",
-    	//"QUANTIDADE DE RESPOSTAS",
-    	//"FECHADA", 
-    	//"DATA FECHAMENTO", 
-    	//"QUANTIDADE COMENTÁRIO", 
-    	//"DATA CRIAÇÃO", 
-    	//"ÚLTIMA DATA DE EDIÇÃO", 
-    	//"PONTOS", 
+    	"ID PERGUNTA",
+    	"ID RESPOSTA ACEITA",
+    	"QUANTIDADE DE RESPOSTAS",
+    	"FECHADA", 
+    	"DATA FECHAMENTO", 
+    	"QUANTIDADE COMENTÁRIO", 
+    	"DATA CRIAÇÃO", 
+    	"ÚLTIMA DATA DE EDIÇÃO", 
+    	"PONTOS", 
     	"TITLE", 
     	"DESCRIÇAO", 
     	"DESCRICAO HTML",
     	"TAGS",
-    	"FOI RESPONDIDA"
-    	//"FOI RESPONDIDA", 
-    	//"QUANTIDADE VISUALIZAÇÕES", 
-   /* 	"QUANTIDADADE DE VOTOS (down)",
+    	"FOI RESPONDIDA",
+    	"FOI RESPONDIDA", 
+    	"QUANTIDADE VISUALIZAÇÕES", 
+    	"QUANTIDADADE DE VOTOS (down)",
     	"FOI VOTADA (down)",
     	"QUANTIDADE DE VOTOS (up)", 
     	"QUANTIDADE DE VOTOS DELETADOS",
-    	"FOI VOTADA (up)",*/
- /*   	
+    	"FOI VOTADA (up)",
+    	
     	"TEMPO (minutos) ENTRE PERGUNTA E 1º COMENTARIO",
     	"TEMPO (minutos) ENTRE PERGUNTA E 1ª RESPOSTA",
     	"TEMPO (minutos) ENTRE 1º COMENTARIO E 1ª RESPOSTA",
     	
-		"COERENCIA ENTRE TITULO E DESCRICAO",
-		"TITULO BEM DEFINIDO",
-		"EXEMPLO",
-		"USO DA NORMA CULTA",
-		"SER EDUCADO",
-		"DETALHE DO CONTEXTO DO PROBLEMA",
-		"DESCRICAO CURTA",
-		
 		"OBJETIVIDADE",
-		"DESCRICAO CURTA (OBJETIVIDADE)",
 		"PERGUNTA UNICA (OBJETIVIDADE)",
-		"EVITAR MUITO CODIGO (OBJETIVIDADE)",
+		"DESCRICAO CURTA (OBJETIVIDADE)",
 		
 		"CLAREZA", 
-		"OBJETIVIDADE (CLAREZA)",
-		"COERENCIA (CLAREZA)",
-		"MOSTRAR EXEMPLO (CLAREZA)",
-		"PERGUNTA UNICA (CLAREZA)",
-		"EVEDENCIAR PROBLEMA (CLAREZA)",
+		"COERENCIA ENTRE TITULO E DESCRICAO (CLAREZA)",
+		"EVIDENCIAR PROBLEMA (CLAREZA)",
 		
 		
-		"PERGUNTA BEM DEFINIDA", 
-		"EVITAR CRIAR PERGUNTAS DUPLICADAS", 
-		"EVITAR CRIAR PERGUNTAS SOBRE TARABALHOS ACADEMICOS",*/
+		"DESCRICAO BEM ESCRITA", 
+		"MOSTRAR EXEMPLO (DESC BEM ESCRITA)",
+		"INCLUIR LINKS REL A PERGUNTA (DESC BEM ESCRITA)",
+		"COMBINAR LINKS COM CONTEUDO (DESC BEM ESCRITA)",
+		"EVITAR PERGUNTAS COM APENAS CODIGO/MUITO CODIGO (DESC BEM ESCRITA)",
+		
+		"SER EDUCADO", 
+		"EVITAR CRIAR PERGUNTAS DUPLICADAS (SER EDUCADO)", 
+		"EVITAR CRIAR PERGUNTAS DE TRABALHOS (SER EDUCADO)",
+		"INCLUIR AGRADECIMENTO (SER EDUCADO)",
+		"USO DA LINGUA CULTA (SER EDUCADO)",
 	};
     
     
@@ -91,7 +87,7 @@ public class CSVUtils {
 			System.out.println(questions.size());
 			for (QuestionPojo q : questions) {
 		    	List recordQuestions = new ArrayList();
-				/*recordQuestions.add(String.valueOf(q.getColumnQuestion().getQuestionId()));
+				recordQuestions.add(String.valueOf(q.getColumnQuestion().getQuestionId()));
 				recordQuestions.add(String.valueOf(q.getColumnQuestion().getAcceptedAnswerId()));
 				recordQuestions.add(String.valueOf(q.getColumnQuestion().getAnswerCount()));
 				recordQuestions.add(String.valueOf(q.getColumnQuestion().isCanClosed()));
@@ -100,13 +96,13 @@ public class CSVUtils {
 				recordQuestions.add(String.valueOf(q.getColumnQuestion().getCreationDate()));
 				recordQuestions.add(String.valueOf(q.getColumnQuestion().getLastEditDate()));
 				recordQuestions.add(String.valueOf(q.getColumnQuestion().getScore()));
-				recordQuestions.add(String.valueOf(q.getColumnQuestion().getViewCount()));*/
+				recordQuestions.add(String.valueOf(q.getColumnQuestion().getViewCount()));
 				recordQuestions.add(String.valueOf(q.getColumnQuestion().getTitle()));
 				recordQuestions.add(String.valueOf(q.getColumnQuestion().getBodyMarkdown()));
 				recordQuestions.add(String.valueOf(q.getColumnQuestion().getBody()));
 				recordQuestions.add(String.valueOf(q.getColumnQuestion().getTags()));
 				recordQuestions.add(String.valueOf(q.getColumnQuestion().isAnswered()));
-				/*recordQuestions.add(String.valueOf(q.getColumnQuestion().getDownVoteCount()));
+				recordQuestions.add(String.valueOf(q.getColumnQuestion().getDownVoteCount()));
 				recordQuestions.add(String.valueOf(q.getColumnQuestion().isDownVoted()));
 				recordQuestions.add(String.valueOf(q.getColumnQuestion().getUpVoteCount()));
 				recordQuestions.add(String.valueOf(q.getColumnQuestion().getDeleteVoteCount()));
@@ -115,6 +111,7 @@ public class CSVUtils {
 				recordQuestions.add(String.valueOf(q.getColumnDateBetwenQuestionComment() == -1 ? "Sem comentário":q.getColumnDateBetwenQuestionComment()));
 				recordQuestions.add(String.valueOf(q.getColumnDateBetwenQuestionAnswer() == -1 ? "Sem Resposta":q.getColumnDateBetwenQuestionAnswer()));
 				recordQuestions.add(String.valueOf(q.getColumnDateBetwenCommentAnswer() == -1 ? "Sem resposta/comentario":q.getColumnDateBetwenCommentAnswer()));
+				
 				
 				recordQuestions.add(String.valueOf(q.getColumnCoerenciaTeD()));
 				recordQuestions.add(String.valueOf(q.getColumnTituloBemDefinido()));
@@ -139,7 +136,7 @@ public class CSVUtils {
 				
 				recordQuestions.add(String.valueOf(q.getColumnPergBemDefinida()));
 				recordQuestions.add(String.valueOf(q.getColumnEvPerguntaDuplicada()));
-				recordQuestions.add(String.valueOf(q.getColumnEvPergSobreTrabAcademicos()));*/
+				recordQuestions.add(String.valueOf(q.getColumnEvPergSobreTrabAcademicos()));
 				
 				csvPrinter.printRecord(recordQuestions);
 			}

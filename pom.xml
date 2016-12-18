@@ -4,9 +4,8 @@
 	<groupId>br.edu.ifpb</groupId>
 	<artifactId>analyzerQuestionsTool</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>analyzerQuestionsTool</name>
-
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,6 +18,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.3</version>
 				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>
@@ -33,13 +33,6 @@
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
 			<scope>test</scope>
-		</dependency>
-		<!-- Java EE API -->
-		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-web-api</artifactId>
-			<version>7.0</version>
-			<scope>provided</scope>
 		</dependency>
 
 		<dependency>

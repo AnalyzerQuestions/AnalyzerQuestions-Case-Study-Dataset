@@ -4,9 +4,8 @@
 	<groupId>br.edu.ifpb</groupId>
 	<artifactId>analyzerQuestionsTool</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>analyzerQuestionsTool</name>
-
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,6 +18,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.3</version>
 				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>
@@ -34,39 +34,7 @@
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- Java EE API -->
-		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-web-api</artifactId>
-			<version>7.0</version>
-			<scope>provided</scope>
-		</dependency>
 
-		<!-- Bibliotecas do primefaces -->
-		<dependency>
-			<groupId>org.primefaces</groupId>
-			<artifactId>primefaces</artifactId>
-			<version>6.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.primefaces.extensions</groupId>
-			<artifactId>primefaces-extensions</artifactId>
-			<version>6.0.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.primefaces.extensions</groupId>
-			<artifactId>resources-ckeditor</artifactId>
-			<version>4.0.0</version>
-		</dependency>
-
-		<!-- PrimeFaces Themes -->
-		<dependency>
-			<groupId>org.primefaces.themes</groupId>
-			<artifactId>all-themes</artifactId>
-			<version>1.0.10</version>
-		</dependency>
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
@@ -168,14 +136,5 @@
 		</dependency>
 
 	</dependencies>
-
-	<repositories>
-		<repository>
-			<id>prime-repo</id>
-			<name>PrimeFaces Maven Repository</name>
-			<url>http://repository.primefaces.org</url>
-			<layout>default</layout>
-		</repository>
-	</repositories>
 
 </project>

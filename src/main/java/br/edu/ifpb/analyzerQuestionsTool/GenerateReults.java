@@ -6,58 +6,73 @@ import java.util.Date;
 import java.util.List;
 
 import br.edu.ifpb.analyzerQuestionsTool.analyzers.QuestionAnalyzerFinal;
+import br.edu.ifpb.analyzerQuestionsTool.analyzers.QuestionAnalyzerPaperFinal;
 import br.edu.ifpb.analyzerQuestionsTool.stackExchangeAPI.entities.pojos.QuestionPojo;
 import br.edu.ifpb.analyzerQuestionsTool.stackExchangeAPI.entities.types.Answer;
 import br.edu.ifpb.analyzerQuestionsTool.stackExchangeAPI.entities.types.Comment;
 import br.edu.ifpb.analyzerQuestionsTool.stackExchangeAPI.entities.types.Question;
 
+/**
+ * 
+ * <p>
+ * 		<b> Gera resultados para dataset </b>
+ * </p>
+ *
+ * <p>
+ * Adicionar metadados do SO e gera resultados a partir
+ * dos analizadores para Dataset.
+ * </p>
+ * 
+ * 
+ * @author <a href="https://github.com/FranckAJ">Franck Aragão</a>
+ *
+ */
 public class GenerateReults {
 	
 	private QuestionAnalyzerFinal analyzer;
+	private QuestionAnalyzerPaperFinal analyzerPaper;
 	
 	
 	public GenerateReults() {
 		analyzer = new QuestionAnalyzerFinal();
+		analyzerPaper = new QuestionAnalyzerPaperFinal();
 	}
 	
+	/**
+	 * 
+	 * @param questions
+	 * @return
+	 */
 	public List<QuestionPojo> generate(List<Question> questions){
 		
 		List<QuestionPojo> questionPojos = new ArrayList<QuestionPojo>();
 		
 		for (Question question : questions) {
 			QuestionPojo qp = new QuestionPojo();
-			qp.setColumnQuestion(question);
+				qp.setColumnQuestion(question);
 				
 				qp.setColumnDateBetwenQuestionComment(this.dateBetwenQuestionComment(question));
 				qp.setColumnDateBetwenQuestionAnswer(this.dateBetwenQuestionAnswer(question));
 				qp.setColumnDateBetwenCommentAnswer(this.dateBetwenCommentAnswer(question));
 				
-				qp.setColumnCoerenciaTeD(analyzer.analyzerCoherencyBodyAndTitle(question.getTitle(), question.getBodyMarkdown()));
-				qp.setColumnTituloBemDefinido(analyzer.analyzerUnderstandableTitle(question.getTitle(), question.getBodyMarkdown()));
-				qp.setColumnExemplo(analyzer.analyzerShowExample(question.getBodyMarkdown()));
-				qp.setColumnUsoNormaCultaLingua(analyzer.analyzerUsingProperLanguage(question.getBodyMarkdown()));
-				qp.setColumnEducacao(analyzer.analyzerBeEducated(question.getBodyMarkdown()));
-				qp.setColumnDetailContexto(analyzer.analyzerDetailAboutContext(question.getBodyMarkdown()));
-				qp.setColumnDescricaoCurta(analyzer.analyzerShortDescriptionQuestion(question.getBodyMarkdown()));
-				
-				qp.setColumnObjetividade(analyzer.analyzerObjective(question.getBodyMarkdown()));
-				qp.setObjShortDescription(analyzer.analyzerShortDescriptionQuestion(question.getBodyMarkdown()));
+				qp.setColumnObjetividade(analyzerPaper.analyzerObjective(question.getBodyMarkdown()));
 				qp.setObjQuestionUnique(analyzer.questionUnique(question.getBodyMarkdown()));
-				qp.setObjAvoidMuchCode(analyzer.avoidingMuchCode(question.getBodyMarkdown()));
+				qp.setObjShortDescription(analyzer.analyzerShortDescriptionQuestion(question.getBodyMarkdown()));
 				
-				
-				qp.setColumnClareza(analyzer.analyzerClarity(question.getTitle(), question.getBodyMarkdown()));
+				qp.setColumnClareza(analyzerPaper.analyzerClarity(question.getTitle(), question.getBodyMarkdown()));
 				qp.setClaCoherency(analyzer.analyzerCoherencyBodyAndTitle(question.getTitle(), question.getBodyMarkdown()));
-				qp.setClaEvidentProbleam(analyzer.isEvidentProbleam(question.getBodyMarkdown()));
-				qp.setClaObjective(analyzer.analyzerObjective(question.getBodyMarkdown()));
-				qp.setClaQuestionUnique(analyzer.questionUnique(question.getBodyMarkdown()));
-				qp.setClaShowExample(analyzer.analyzerShowExample(question.getBodyMarkdown()));
+				qp.setClaCoherency(analyzer.isEvidentProbleam(question.getBodyMarkdown()));
 
+				qp.setColumnPergBemDefinida(analyzerPaper.analyzerUnderstandableDescription(question.getTitle(), question.getBodyMarkdown()));	
+				qp.setColumnExemplo(analyzer.analyzerShowExample(question.getBodyMarkdown()));
+				qp.setClaEvidentProbleam(analyzerPaper.analyzerMuchCodeOrOnlyCode(question.getBodyMarkdown()));
 				
-				
-				qp.setColumnPergBemDefinida(analyzer.analyzerUnderstandableDescription(question.getTitle(), question.getBodyMarkdown()));	
-				qp.setColumnEvPerguntaDuplicada(analyzer.analyzerAvoidCreateDuplicateQuestion(this.parseComments(question.getComments())));
+				qp.setColumnEducacao(analyzerPaper.analyzerBeEducated(question.getBodyMarkdown(), this.parseComments(question.getComments())));
+				qp.setColumnUsoNormaCultaLingua(analyzer.analyzerAvoidCreateDuplicateQuestion(this.parseComments(question.getComments())));
 				qp.setColumnEvPergSobreTrabAcademicos(analyzer.analyzerDoNotCreateHomeworkQuestions(question.getBodyMarkdown()));
+				qp.setColumnEducacao(analyzer.includingGreetings(question.getBodyMarkdown()));
+				qp.setColumnUsoNormaCultaLingua(analyzer.analyzerUsingProperLanguage(question.getBodyMarkdown()));
+				
 				
 				questionPojos.add(qp);
 		}

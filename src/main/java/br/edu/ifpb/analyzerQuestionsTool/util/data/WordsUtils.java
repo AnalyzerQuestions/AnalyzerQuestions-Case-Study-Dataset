@@ -27,7 +27,7 @@ public class WordsUtils {
 	 */
 	public final static String[] WORDS_DUPLICATE_CODE = { "pergunta duplicada",
 			"já resolvido", "problema duplicado", "possível duplicação",
-			"problema resolvido" };
+			"problema resolvido", "possível solução", "já resolvido", "problema semelhante" };
 
 	/**
 	 * Lista de palavras que podem identificar um exemplo numa pergunta
