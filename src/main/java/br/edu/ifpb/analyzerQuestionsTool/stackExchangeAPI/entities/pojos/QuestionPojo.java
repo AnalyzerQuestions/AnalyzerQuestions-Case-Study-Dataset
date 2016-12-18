@@ -2,6 +2,19 @@ package br.edu.ifpb.analyzerQuestionsTool.stackExchangeAPI.entities.pojos;
 
 import br.edu.ifpb.analyzerQuestionsTool.stackExchangeAPI.entities.types.Question;
 
+/**
+ * 
+ * <p>
+ * <b> POJO Dataset </b>
+ * </p>
+ *
+ * <pre>
+ * &#64;see <a href="http://www.linkreferencia.com">Link de Referencia</a>
+ * </pre>
+ * 
+ * @author <a href="https://github.com/FranckAJ">Franck Aragão</a>
+ *
+ */
 public class QuestionPojo {
 
 	private Question columnQuestion;
@@ -17,22 +30,15 @@ public class QuestionPojo {
 	private int columnEducacao;
 	private int columnDetailContexto;
 	private int columnDescricaoCurta;
-
-	private int columnObjetividade;
-	private int objShortDescription;
-	private int objQuestionUnique;
-	private int objAvoidMuchCode;
-
-	private int columnClareza;
-	private int claObjective;
-	private int claCoherency;
-	private int claShowExample;
-	private int claQuestionUnique;
-	private int claEvidentProbleam;
-
-	private int columnPergBemDefinida;
+	private int columnMuchCode;
+	private int columnQuestionUnique;
+	private int columnEvidentProbleam;
 	private int columnEvPerguntaDuplicada;
 	private int columnEvPergSobreTrabAcademicos;
+	private int columnAgradecimento;
+	private int columnPergBemDefinida;
+	private int columnObjetividade;
+	private int columnClareza;
 
 	public QuestionPojo() {
 	}
@@ -43,6 +49,38 @@ public class QuestionPojo {
 
 	public void setColumnQuestion(Question columnQuestion) {
 		this.columnQuestion = columnQuestion;
+	}
+
+	public Long getColumnDateBetwenQuestionComment() {
+		return columnDateBetwenQuestionComment;
+	}
+
+	public void setColumnDateBetwenQuestionComment(Long columnDateBetwenQuestionComment) {
+		this.columnDateBetwenQuestionComment = columnDateBetwenQuestionComment;
+	}
+
+	public Long getColumnDateBetwenQuestionAnswer() {
+		return columnDateBetwenQuestionAnswer;
+	}
+
+	public void setColumnDateBetwenQuestionAnswer(Long columnDateBetwenQuestionAnswer) {
+		this.columnDateBetwenQuestionAnswer = columnDateBetwenQuestionAnswer;
+	}
+
+	public Long getColumnDateBetwenCommentAnswer() {
+		return columnDateBetwenCommentAnswer;
+	}
+
+	public int getColumnAgradecimento() {
+		return columnAgradecimento;
+	}
+
+	public void setColumnAgradecimento(int columnAgradecimento) {
+		this.columnAgradecimento = columnAgradecimento;
+	}
+
+	public void setColumnDateBetwenCommentAnswer(Long columnDateBetwenCommentAnswer) {
+		this.columnDateBetwenCommentAnswer = columnDateBetwenCommentAnswer;
 	}
 
 	public int getColumnCoerenciaTeD() {
@@ -101,28 +139,28 @@ public class QuestionPojo {
 		this.columnDescricaoCurta = columnDescricaoCurta;
 	}
 
-	public int getColumnObjetividade() {
-		return columnObjetividade;
+	public int getColumnMuchCode() {
+		return columnMuchCode;
 	}
 
-	public void setColumnObjetividade(int columnObjetividade) {
-		this.columnObjetividade = columnObjetividade;
+	public void setColumnMuchCode(int columnMuchCode) {
+		this.columnMuchCode = columnMuchCode;
 	}
 
-	public int getColumnClareza() {
-		return columnClareza;
+	public int getColumnQuestionUnique() {
+		return columnQuestionUnique;
 	}
 
-	public void setColumnClareza(int columnClareza) {
-		this.columnClareza = columnClareza;
+	public void setColumnQuestionUnique(int columnQuestionUnique) {
+		this.columnQuestionUnique = columnQuestionUnique;
 	}
 
-	public int getColumnPergBemDefinida() {
-		return columnPergBemDefinida;
+	public int getColumnEvidentProbleam() {
+		return columnEvidentProbleam;
 	}
 
-	public void setColumnPergBemDefinida(int columnPergBemDefinida) {
-		this.columnPergBemDefinida = columnPergBemDefinida;
+	public void setColumnEvidentProbleam(int columnEvidentProbleam) {
+		this.columnEvidentProbleam = columnEvidentProbleam;
 	}
 
 	public int getColumnEvPerguntaDuplicada() {
@@ -137,100 +175,32 @@ public class QuestionPojo {
 		return columnEvPergSobreTrabAcademicos;
 	}
 
-	public void setColumnEvPergSobreTrabAcademicos(
-			int columnEvPergSobreTrabAcademicos) {
+	public void setColumnEvPergSobreTrabAcademicos(int columnEvPergSobreTrabAcademicos) {
 		this.columnEvPergSobreTrabAcademicos = columnEvPergSobreTrabAcademicos;
 	}
 
-	public Long getColumnDateBetwenQuestionComment() {
-		return columnDateBetwenQuestionComment;
+	public int getColumnPergBemDefinida() {
+		return columnPergBemDefinida;
 	}
 
-	public void setColumnDateBetwenQuestionComment(
-			Long columnDateBetwenQuestionComment) {
-		this.columnDateBetwenQuestionComment = columnDateBetwenQuestionComment;
+	public void setColumnPergBemDefinida(int columnPergBemDefinida) {
+		this.columnPergBemDefinida = columnPergBemDefinida;
 	}
 
-	public Long getColumnDateBetwenQuestionAnswer() {
-		return columnDateBetwenQuestionAnswer;
+	public int getColumnObjetividade() {
+		return columnObjetividade;
 	}
 
-	public void setColumnDateBetwenQuestionAnswer(
-			Long columnDateBetwenQuestionAnswer) {
-		this.columnDateBetwenQuestionAnswer = columnDateBetwenQuestionAnswer;
+	public void setColumnObjetividade(int columnObjetividade) {
+		this.columnObjetividade = columnObjetividade;
 	}
 
-	public Long getColumnDateBetwenCommentAnswer() {
-		return columnDateBetwenCommentAnswer;
+	public int getColumnClareza() {
+		return columnClareza;
 	}
 
-	public void setColumnDateBetwenCommentAnswer(
-			Long columnDateBetwenCommentAnswer) {
-		this.columnDateBetwenCommentAnswer = columnDateBetwenCommentAnswer;
-	}
-
-	public int getObjShortDescription() {
-		return objShortDescription;
-	}
-
-	public void setObjShortDescription(int objShortDescription) {
-		this.objShortDescription = objShortDescription;
-	}
-
-	public int getObjQuestionUnique() {
-		return objQuestionUnique;
-	}
-
-	public void setObjQuestionUnique(int objQuestionUnique) {
-		this.objQuestionUnique = objQuestionUnique;
-	}
-
-	public int getObjAvoidMuchCode() {
-		return objAvoidMuchCode;
-	}
-
-	public void setObjAvoidMuchCode(int objAvoidMuchCode) {
-		this.objAvoidMuchCode = objAvoidMuchCode;
-	}
-
-	public int getClaObjective() {
-		return claObjective;
-	}
-
-	public void setClaObjective(int claObjective) {
-		this.claObjective = claObjective;
-	}
-
-	public int getClaCoherency() {
-		return claCoherency;
-	}
-
-	public void setClaCoherency(int claCoherency) {
-		this.claCoherency = claCoherency;
-	}
-
-	public int getClaShowExample() {
-		return claShowExample;
-	}
-
-	public void setClaShowExample(int claShowExample) {
-		this.claShowExample = claShowExample;
-	}
-
-	public int getClaQuestionUnique() {
-		return claQuestionUnique;
-	}
-
-	public void setClaQuestionUnique(int claQuestionUnique) {
-		this.claQuestionUnique = claQuestionUnique;
-	}
-
-	public int getClaEvidentProbleam() {
-		return claEvidentProbleam;
-	}
-
-	public void setClaEvidentProbleam(int claEvidentProbleam) {
-		this.claEvidentProbleam = claEvidentProbleam;
+	public void setColumnClareza(int columnClareza) {
+		this.columnClareza = columnClareza;
 	}
 
 }

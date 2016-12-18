@@ -76,21 +76,21 @@ public class GenerateReults {
 				 * Analizers of questions obtained requesties in SO for paper of Journal submit
 				 */
 				qp.setColumnObjetividade(analyzerPaper.analyzerObjective(question.getBodyMarkdown()));
-				qp.setObjQuestionUnique(analyzer.questionUnique(question.getBodyMarkdown()));
-				qp.setObjShortDescription(analyzer.analyzerShortDescriptionQuestion(question.getBodyMarkdown()));
+				qp.setColumnQuestionUnique(analyzer.questionUnique(question.getBodyMarkdown()));
+				qp.setColumnDescricaoCurta(analyzer.analyzerShortDescriptionQuestion(question.getBodyMarkdown()));
 				
 				qp.setColumnClareza(analyzerPaper.analyzerClarity(question.getTitle(), question.getBodyMarkdown()));
-				qp.setClaCoherency(analyzer.analyzerCoherencyBodyAndTitle(question.getTitle(), question.getBodyMarkdown()));
-				qp.setClaCoherency(analyzer.isEvidentProbleam(question.getBodyMarkdown()));
+				qp.setColumnCoerenciaTeD(analyzer.analyzerCoherencyBodyAndTitle(question.getTitle(), question.getBodyMarkdown()));
+				qp.setColumnEvidentProbleam(analyzer.isEvidentProbleam(question.getBodyMarkdown()));
 
 				qp.setColumnPergBemDefinida(analyzerPaper.analyzerUnderstandableDescription(question.getTitle(), question.getBodyMarkdown()));	
 				qp.setColumnExemplo(analyzer.analyzerShowExample(question.getBodyMarkdown()));
-				qp.setClaEvidentProbleam(analyzerPaper.analyzerMuchCodeOrOnlyCode(question.getBodyMarkdown()));
+				qp.setColumnMuchCode(analyzerPaper.analyzerMuchCodeOrOnlyCode(question.getBodyMarkdown()));
 				
 				qp.setColumnEducacao(analyzerPaper.analyzerBeEducated(question.getBodyMarkdown(), this.parseComments(question.getComments())));
-				qp.setColumnUsoNormaCultaLingua(analyzer.analyzerAvoidCreateDuplicateQuestion(this.parseComments(question.getComments())));
+				qp.setColumnEvPerguntaDuplicada(analyzer.analyzerAvoidCreateDuplicateQuestion(this.parseComments(question.getComments())));
 				qp.setColumnEvPergSobreTrabAcademicos(analyzer.analyzerDoNotCreateHomeworkQuestions(question.getBodyMarkdown()));
-				qp.setColumnEducacao(analyzer.includingGreetings(question.getBodyMarkdown()));
+				qp.setColumnAgradecimento(analyzer.includingGreetings(question.getBodyMarkdown()));
 				qp.setColumnUsoNormaCultaLingua(analyzer.analyzerUsingProperLanguage(question.getBodyMarkdown()));
 				
 				

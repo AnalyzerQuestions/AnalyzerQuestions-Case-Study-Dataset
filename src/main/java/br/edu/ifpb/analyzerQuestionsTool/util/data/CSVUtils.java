@@ -10,6 +10,15 @@ import org.apache.commons.csv.CSVPrinter;
 
 import br.edu.ifpb.analyzerQuestionsTool.stackExchangeAPI.entities.pojos.QuestionPojo;
 
+/**
+ * 
+ * <p>
+ * <b> Grava dataset com os resultados</b>
+ * </p>
+ *
+ * @author <a href="https://github.com/FranckAJ">Franck Aragão</a>
+ *
+ */
 public class CSVUtils {
 	
     private static final String NEW_LINE_SEPARATOR = "\n";
@@ -18,6 +27,9 @@ public class CSVUtils {
 
 	private CSVPrinter csvPrinter;
     
+	/**
+	 * Headers of dataset
+	 */
     private static final Object [] FILE_HEADER = {
     	"ID PERGUNTA",
     	"ID RESPOSTA ACEITA",
@@ -73,6 +85,10 @@ public class CSVUtils {
     }
     
     
+    /**
+     * Write in file with format csv
+     * @param fileName
+     */
     @SuppressWarnings({ "rawtypes", "unchecked" })
 	public void writeCSV(String fileName){
     	
@@ -112,32 +128,28 @@ public class CSVUtils {
 				recordQuestions.add(String.valueOf(q.getColumnDateBetwenQuestionAnswer() == -1 ? "Sem Resposta":q.getColumnDateBetwenQuestionAnswer()));
 				recordQuestions.add(String.valueOf(q.getColumnDateBetwenCommentAnswer() == -1 ? "Sem resposta/comentario":q.getColumnDateBetwenCommentAnswer()));
 				
-				
-				recordQuestions.add(String.valueOf(q.getColumnCoerenciaTeD()));
-				recordQuestions.add(String.valueOf(q.getColumnTituloBemDefinido()));
-				recordQuestions.add(String.valueOf(q.getColumnExemplo()));
-				recordQuestions.add(String.valueOf(q.getColumnUsoNormaCultaLingua()));
-				recordQuestions.add(String.valueOf(q.getColumnEducacao()));
-				recordQuestions.add(String.valueOf(q.getColumnDetailContexto()));
+
+				recordQuestions.add(String.valueOf(q.getColumnObjetividade()));
+				recordQuestions.add(String.valueOf(q.getColumnQuestionUnique()));
 				recordQuestions.add(String.valueOf(q.getColumnDescricaoCurta()));
 				
-				recordQuestions.add(String.valueOf(q.getColumnObjetividade()));
-				recordQuestions.add(String.valueOf(q.getObjShortDescription()));
-				recordQuestions.add(String.valueOf(q.getObjQuestionUnique()));
-				recordQuestions.add(String.valueOf(q.getObjAvoidMuchCode()));
 				
 				recordQuestions.add(String.valueOf(q.getColumnClareza()));
-				recordQuestions.add(String.valueOf(q.getClaObjective()));
-				recordQuestions.add(String.valueOf(q.getClaCoherency()));
-				recordQuestions.add(String.valueOf(q.getClaShowExample()));
-				recordQuestions.add(String.valueOf(q.getClaQuestionUnique()));
-				recordQuestions.add(String.valueOf(q.getClaEvidentProbleam()));
-				
+				recordQuestions.add(String.valueOf(q.getColumnCoerenciaTeD()));
+				recordQuestions.add(String.valueOf(q.getColumnEvidentProbleam()));
+
 				
 				recordQuestions.add(String.valueOf(q.getColumnPergBemDefinida()));
+				recordQuestions.add(String.valueOf(q.getColumnExemplo()));
+				recordQuestions.add(String.valueOf(q.getColumnMuchCode()));
+				
+				
+				recordQuestions.add(String.valueOf(q.getColumnEducacao()));
 				recordQuestions.add(String.valueOf(q.getColumnEvPerguntaDuplicada()));
 				recordQuestions.add(String.valueOf(q.getColumnEvPergSobreTrabAcademicos()));
-				
+				recordQuestions.add(String.valueOf(q.getColumnAgradecimento()));
+				recordQuestions.add(String.valueOf(q.getColumnUsoNormaCultaLingua()));
+
 				csvPrinter.printRecord(recordQuestions);
 			}
 			
