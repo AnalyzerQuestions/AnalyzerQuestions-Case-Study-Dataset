@@ -250,12 +250,12 @@ public class QuestionAnalyzerFinal {
 		for (int i = 0; i < duplicates.length; i++) {
 			for (String comment : comments) {
 				if(comment.contains(duplicates[i])){
-					return 1;
+					return 0;
 				}
 			}
 		}
 		
-		return 0;
+		return 1;
 	}
 
 	/**

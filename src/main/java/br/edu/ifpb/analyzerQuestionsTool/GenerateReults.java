@@ -58,43 +58,45 @@ public class GenerateReults {
 		List<QuestionPojo> questionPojos = new ArrayList<QuestionPojo>();
 		
 		for (Question question : questions) {
-			QuestionPojo qp = new QuestionPojo();
-			
-				/**
-				 * metadados SO request to API
-				 */
-				qp.setColumnQuestion(question);
+			if(!question.isAnswered()){
+				QuestionPojo qp = new QuestionPojo();
 				
-				/**
-				 * metadados of time asks
-				 */
-				qp.setColumnDateBetwenQuestionComment(this.dateBetwenQuestionComment(question));
-				qp.setColumnDateBetwenQuestionAnswer(this.dateBetwenQuestionAnswer(question));
-				qp.setColumnDateBetwenCommentAnswer(this.dateBetwenCommentAnswer(question));
-				
-				/**
-				 * Analizers of questions obtained requesties in SO for paper of Journal submit
-				 */
-				qp.setColumnObjetividade(analyzerPaper.analyzerObjective(question.getBodyMarkdown()));
-				qp.setColumnQuestionUnique(analyzer.questionUnique(question.getBodyMarkdown()));
-				qp.setColumnDescricaoCurta(analyzer.analyzerShortDescriptionQuestion(question.getBodyMarkdown()));
-				
-				qp.setColumnClareza(analyzerPaper.analyzerClarity(question.getTitle(), question.getBodyMarkdown()));
-				qp.setColumnCoerenciaTeD(analyzer.analyzerCoherencyBodyAndTitle(question.getTitle(), question.getBodyMarkdown()));
-				qp.setColumnEvidentProbleam(analyzer.isEvidentProbleam(question.getBodyMarkdown()));
-
-				qp.setColumnPergBemDefinida(analyzerPaper.analyzerUnderstandableDescription(question.getTitle(), question.getBodyMarkdown()));	
-				qp.setColumnExemplo(analyzer.analyzerShowExample(question.getBodyMarkdown()));
-				qp.setColumnMuchCode(analyzerPaper.analyzerMuchCodeOrOnlyCode(question.getBodyMarkdown()));
-				
-				qp.setColumnEducacao(analyzerPaper.analyzerBeEducated(question.getBodyMarkdown(), this.parseComments(question.getComments())));
-				qp.setColumnEvPerguntaDuplicada(analyzer.analyzerAvoidCreateDuplicateQuestion(this.parseComments(question.getComments())));
-				qp.setColumnEvPergSobreTrabAcademicos(analyzer.analyzerDoNotCreateHomeworkQuestions(question.getBodyMarkdown()));
-				qp.setColumnAgradecimento(analyzer.includingGreetings(question.getBodyMarkdown()));
-				qp.setColumnUsoNormaCultaLingua(analyzer.analyzerUsingProperLanguage(question.getBodyMarkdown()));
-				
-				
-				questionPojos.add(qp);
+					/**
+					 * metadados SO request to API
+					 */
+					qp.setColumnQuestion(question);
+					
+					/**
+					 * metadados of time asks
+					 */
+					qp.setColumnDateBetwenQuestionComment(this.dateBetwenQuestionComment(question));
+					qp.setColumnDateBetwenQuestionAnswer(this.dateBetwenQuestionAnswer(question));
+					qp.setColumnDateBetwenCommentAnswer(this.dateBetwenCommentAnswer(question));
+					
+					/**
+					 * Analizers of questions obtained requesties in SO for paper of Journal submit
+					 */
+					qp.setColumnObjetividade(analyzerPaper.analyzerObjective(question.getBodyMarkdown()));
+					qp.setColumnQuestionUnique(analyzer.questionUnique(question.getBodyMarkdown()));
+					qp.setColumnDescricaoCurta(analyzer.analyzerShortDescriptionQuestion(question.getBodyMarkdown()));
+					
+					qp.setColumnClareza(analyzerPaper.analyzerClarity(question.getTitle(), question.getBodyMarkdown()));
+					qp.setColumnCoerenciaTeD(analyzer.analyzerCoherencyBodyAndTitle(question.getTitle(), question.getBodyMarkdown()));
+					qp.setColumnEvidentProbleam(analyzer.isEvidentProbleam(question.getBodyMarkdown()));
+	
+					qp.setColumnPergBemDefinida(analyzerPaper.analyzerUnderstandableDescription(question.getTitle(), question.getBodyMarkdown()));	
+					qp.setColumnExemplo(analyzer.analyzerShowExample(question.getBodyMarkdown()));
+					qp.setColumnMuchCode(analyzerPaper.analyzerMuchCodeOrOnlyCode(question.getBodyMarkdown()));
+					
+					qp.setColumnEducacao(analyzerPaper.analyzerBeEducated(question.getBodyMarkdown(), this.parseComments(question.getComments())));
+					qp.setColumnEvPerguntaDuplicada(analyzer.analyzerAvoidCreateDuplicateQuestion(this.parseComments(question.getComments())));
+					qp.setColumnEvPergSobreTrabAcademicos(analyzer.analyzerDoNotCreateHomeworkQuestions(question.getBodyMarkdown()));
+					qp.setColumnAgradecimento(analyzer.includingGreetings(question.getBodyMarkdown()));
+					qp.setColumnUsoNormaCultaLingua(analyzer.analyzerUsingProperLanguage(question.getBodyMarkdown()));
+					
+					
+					questionPojos.add(qp);
+			}
 		}
 		
 		return questionPojos;
