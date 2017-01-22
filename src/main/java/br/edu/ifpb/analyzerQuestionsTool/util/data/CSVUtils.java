@@ -67,8 +67,8 @@ public class CSVUtils {
 		
 		"DESCRICAO BEM ESCRITA", 
 		"MOSTRAR EXEMPLO (DESC BEM ESCRITA)",
-	//	"INCLUIR LINKS REL A PERGUNTA (DESC BEM ESCRITA)",
-		//"COMBINAR LINKS COM CONTEUDO (DESC BEM ESCRITA)",
+		"INCLUIR LINKS REL A PERGUNTA (DESC BEM ESCRITA)",
+		"COMBINAR LINKS COM CONTEUDO (DESC BEM ESCRITA)",
 		"EVITAR PERGUNTAS COM APENAS CODIGO/MUITO CODIGO (DESC BEM ESCRITA)",
 		
 		"SER EDUCADO", 
@@ -140,6 +140,8 @@ public class CSVUtils {
 				
 				recordQuestions.add(String.valueOf(q.getColumnPergBemDefinida()));
 				recordQuestions.add(String.valueOf(q.getColumnExemplo()));
+				recordQuestions.add(String.valueOf(q.getColummLink()));
+				recordQuestions.add(String.valueOf(q.getCombLink()));
 				recordQuestions.add(String.valueOf(q.getColumnMuchCode()));
 				
 				

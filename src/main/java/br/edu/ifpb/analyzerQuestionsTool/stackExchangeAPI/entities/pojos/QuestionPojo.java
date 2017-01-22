@@ -39,8 +39,26 @@ public class QuestionPojo {
 	private int columnPergBemDefinida;
 	private int columnObjetividade;
 	private int columnClareza;
+	private int colummLink;
+	private int combLink;
 
 	public QuestionPojo() {
+	}
+
+	public int getColummLink() {
+		return colummLink;
+	}
+
+	public void setColummLink(int colummLink) {
+		this.colummLink = colummLink;
+	}
+
+	public int getCombLink() {
+		return combLink;
+	}
+
+	public void setCombLink(int combLink) {
+		this.combLink = combLink;
 	}
 
 	public Question getColumnQuestion() {

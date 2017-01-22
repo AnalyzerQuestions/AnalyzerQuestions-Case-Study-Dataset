@@ -39,7 +39,11 @@ public class QuestionAnalyzerPaperFinal {
 	public Integer analyzerUnderstandableDescription(String title, String description) {
 		if(qa.analyzerShowExample(description) == 1){
 			if(analyzerMuchCodeOrOnlyCode(description) == 1){
-				return 1;
+				if(qa.containsURL(description) == 1) {
+					if(qa.combinateURLWithContent(description) == 1){
+						return 1;						
+					}
+				}
 			}
 		}
 		

@@ -98,11 +98,15 @@ public class StackExchangeApiTest {
 
 		System.out.println("------------------------------------------------> 200 OK");
 		System.out.println("------------------------------------------------> "+itemsQuestions.size()+" COUNT LIST");
+		System.out.println("------------------------------------------------> Analyzing ...");
 
 		GenerateReults generateReults = new GenerateReults();
 		CSVUtils csvUtils = new CSVUtils();
 		csvUtils.getQuestions(generateReults.generate(itemsQuestions));
-		csvUtils.writeCSV("perguntas-nao-respondidas.csv");
+		
+		System.out.println("------------------------------------------------> writing ...");
+		
+		csvUtils.writeCSV("perguntas-respondidas.csv");
 		
 		System.out.println("------------------------------------------------> ESCRITA CSV OK");
 

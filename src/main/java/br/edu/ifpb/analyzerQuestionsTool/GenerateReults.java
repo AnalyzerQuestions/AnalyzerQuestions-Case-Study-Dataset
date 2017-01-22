@@ -58,7 +58,7 @@ public class GenerateReults {
 		List<QuestionPojo> questionPojos = new ArrayList<QuestionPojo>();
 		
 		for (Question question : questions) {
-			if(!question.isAnswered()){
+			if(question.isAnswered()){
 				QuestionPojo qp = new QuestionPojo();
 				
 					/**
@@ -86,6 +86,8 @@ public class GenerateReults {
 	
 					qp.setColumnPergBemDefinida(analyzerPaper.analyzerUnderstandableDescription(question.getTitle(), question.getBodyMarkdown()));	
 					qp.setColumnExemplo(analyzer.analyzerShowExample(question.getBodyMarkdown()));
+					qp.setColummLink(analyzer.containsURL(question.getBodyMarkdown()));
+					qp.setCombLink(analyzer.combinateURLWithContent(question.getBodyMarkdown()));
 					qp.setColumnMuchCode(analyzerPaper.analyzerMuchCodeOrOnlyCode(question.getBodyMarkdown()));
 					
 					qp.setColumnEducacao(analyzerPaper.analyzerBeEducated(question.getBodyMarkdown(), this.parseComments(question.getComments())));
