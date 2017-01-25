@@ -79,6 +79,14 @@ public class StackExchangeApiTest {
 		dates.put("1473897600", "1475193600");
 		dates.put("1475280000", "1476403200"); //2016-10-14 <- parou aqui
 		
+		dates.put("1476489600", "1477872000");
+		dates.put("1477958400", "1479168000");
+		dates.put("1479254400", "1480464000");
+		dates.put("1480550400", "1481760000");
+		dates.put("1481846400", "1483142400");
+		dates.put("1483228800", "1484352000");
+		dates.put("1484438400", "1485302400"); //2017-01-25 <- parou aqui
+	
 		
 		
 		StackExchangeSite siteService = api.getSiteService(StackExchangeSite.STACK_OVERFLOW);
@@ -106,7 +114,7 @@ public class StackExchangeApiTest {
 		
 		System.out.println("------------------------------------------------> writing ...");
 		
-		csvUtils.writeCSV("perguntas-respondidas.csv");
+		csvUtils.writeCSV("perguntas-nao-respondidas.csv");
 		
 		System.out.println("------------------------------------------------> ESCRITA CSV OK");
 

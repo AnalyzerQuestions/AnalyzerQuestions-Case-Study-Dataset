@@ -1,7 +1,6 @@
 package br.edu.ifpb.analyzerQuestionsTool.analyzers;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -452,8 +451,7 @@ public class QuestionAnalyzerFinal {
 	 * Verifica a frequência de código em um texto
 	 * </p>
 	 * 
-	 * @param description
-	 *            texto
+	 * @param description texto
 	 * @return a frequẽncia do texto passado
 	 */
 	private int frenquencyOfCode(String description, Integer type) {
@@ -592,7 +590,7 @@ public class QuestionAnalyzerFinal {
 						char in = tDescription[j+1].charAt(0);
 						if(Character.isUpperCase(in)) {
 							for (int k = j+1; k < i; k++) {
-								afterParagraph+= tDescription[k] + " ";
+								beforeParagraph += tDescription[k] + " ";
 							}
 						}
 					}

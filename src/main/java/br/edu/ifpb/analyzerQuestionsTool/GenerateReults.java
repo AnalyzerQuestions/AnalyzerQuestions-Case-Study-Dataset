@@ -58,7 +58,7 @@ public class GenerateReults {
 		List<QuestionPojo> questionPojos = new ArrayList<QuestionPojo>();
 		
 		for (Question question : questions) {
-			if(question.isAnswered()){
+			if(question.getAnswerCount() <= 0){
 				QuestionPojo qp = new QuestionPojo();
 				
 					/**
